@@ -2,8 +2,9 @@
   <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5em; color: #000000;">
     Thank you for your attention!
   </div>
-  <div style="font-family: 'Roboto Mono', monospace; font-size: 0.9em; color: #000000; margin-top: 0.3em;">
+  <div style="font-family: 'Roboto Mono', monospace; font-size: 0.9em; color: #000000; margin-top: 0.3em; display: flex; flex-direction: column; gap: 0.15em;">
     <a href="https://github.com/isglobal-brge/dsFlower" style="color: #1a3fff !important; text-decoration: none !important;">github.com/isglobal-brge/dsFlower</a>
+    <a href="https://github.com/isglobal-brge/dsFlowerClient" style="color: #1a3fff !important; text-decoration: none !important;">github.com/isglobal-brge/dsFlowerClient</a>
   </div>
   <div class="flex items-center justify-center gap-6" style="margin-top: 2em;">
     <div class="flex flex-col items-center gap-1">
