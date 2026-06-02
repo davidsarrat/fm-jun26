@@ -28,7 +28,7 @@ A recipe is just **four plain-language choices**:
 
 <div class="mt-3" v-click>
 
-Connect, compose, run. **Privacy is enforced by the server** &mdash; not something the analyst can switch off.
+Connect, compose, run. **Privacy is enforced by the server**, so it holds no matter what the analyst writes.
 
 </div>
 

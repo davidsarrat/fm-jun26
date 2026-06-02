@@ -13,7 +13,7 @@
 </div>
 <div>
 
-Real medical images, not summary tables. A single chest CT is a **512 &times; 512 &times; N** volume that never leaves the hospital.
+These are the actual scans dsFlower trains on. A single chest CT is a **512 &times; 512 &times; N** volume, and it never leaves the hospital.
 
 <div class="mt-3" v-click>
 
