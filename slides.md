@@ -39,6 +39,10 @@ src: ./slides/datashield-workflow.md
 ---
 
 ---
+src: ./slides/bridge.md
+---
+
+---
 src: ./slides/dsflower-workflow.md
 ---
 
