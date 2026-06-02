@@ -205,16 +205,16 @@ recipe <span style="color:#b0a8a0;">&lt;-</span> <span style="color:#78a9ff;">ds
 <div style="animation-delay:2.8s">&nbsp; BER: SuperNode <span style="color:#66ddaa;">connected</span></div>
 <div style="animation-delay:3.1s">&nbsp; AMS: SuperNode <span style="color:#66ddaa;">connected</span></div>
 <div style="animation-delay:3.5s">&nbsp; Code verification <span style="color:#66ddaa;">passed</span> on all servers <span style="color:#b0a8a0;">(app hash matches server templates)</span></div>
-<div style="animation-delay:4.2s"><span style="color:#88ccff;">[ROUND &nbsp;1/10]</span> 5 clients &mdash; loss: 0.6814</div>
-<div style="animation-delay:5.0s"><span style="color:#88ccff;">[ROUND &nbsp;2/10]</span> 5 clients &mdash; loss: 0.5923</div>
-<div style="animation-delay:5.7s"><span style="color:#88ccff;">[ROUND &nbsp;3/10]</span> 5 clients &mdash; loss: 0.5107</div>
-<div style="animation-delay:6.3s"><span style="color:#88ccff;">[ROUND &nbsp;4/10]</span> 5 clients &mdash; loss: 0.4489</div>
-<div style="animation-delay:6.9s"><span style="color:#88ccff;">[ROUND &nbsp;5/10]</span> 5 clients &mdash; loss: 0.4021</div>
-<div style="animation-delay:7.5s"><span style="color:#88ccff;">[ROUND &nbsp;6/10]</span> 5 clients &mdash; loss: 0.3712</div>
-<div style="animation-delay:8.0s"><span style="color:#88ccff;">[ROUND &nbsp;7/10]</span> 5 clients &mdash; loss: 0.3498</div>
-<div style="animation-delay:8.5s"><span style="color:#88ccff;">[ROUND &nbsp;8/10]</span> 5 clients &mdash; loss: 0.3341</div>
-<div style="animation-delay:8.9s"><span style="color:#88ccff;">[ROUND &nbsp;9/10]</span> 5 clients &mdash; loss: 0.3219</div>
-<div style="animation-delay:9.4s"><span style="color:#88ccff;">[ROUND 10/10]</span> 5 clients &mdash; loss: 0.3148</div>
+<div style="animation-delay:4.2s"><span style="color:#88ccff;">[ROUND &nbsp;1/10]</span> 5 clients · loss: 0.6814</div>
+<div style="animation-delay:5.0s"><span style="color:#88ccff;">[ROUND &nbsp;2/10]</span> 5 clients · loss: 0.5923</div>
+<div style="animation-delay:5.7s"><span style="color:#88ccff;">[ROUND &nbsp;3/10]</span> 5 clients · loss: 0.5107</div>
+<div style="animation-delay:6.3s"><span style="color:#88ccff;">[ROUND &nbsp;4/10]</span> 5 clients · loss: 0.4489</div>
+<div style="animation-delay:6.9s"><span style="color:#88ccff;">[ROUND &nbsp;5/10]</span> 5 clients · loss: 0.4021</div>
+<div style="animation-delay:7.5s"><span style="color:#88ccff;">[ROUND &nbsp;6/10]</span> 5 clients · loss: 0.3712</div>
+<div style="animation-delay:8.0s"><span style="color:#88ccff;">[ROUND &nbsp;7/10]</span> 5 clients · loss: 0.3498</div>
+<div style="animation-delay:8.5s"><span style="color:#88ccff;">[ROUND &nbsp;8/10]</span> 5 clients · loss: 0.3341</div>
+<div style="animation-delay:8.9s"><span style="color:#88ccff;">[ROUND &nbsp;9/10]</span> 5 clients · loss: 0.3219</div>
+<div style="animation-delay:9.4s"><span style="color:#88ccff;">[ROUND 10/10]</span> 5 clients · loss: 0.3148</div>
 <div style="animation-delay:9.7s"><span style="color:#66ddaa;">Model saved to ./dsflower_output/pytorch_mlp_FedProx_10r_20260415</span></div>
 <div style="animation-delay:9.8s">SuperLink stopped.</div>
 </div>

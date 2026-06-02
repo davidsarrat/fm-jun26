@@ -3,7 +3,7 @@
 <div class="grid grid-cols-2 gap-8 mt-2">
 <div>
 
-XGBoost is the workhorse for **tabular clinical data** &mdash; but it builds **decision trees**, so there are no weights to average like a neural network.
+XGBoost is the workhorse for **tabular clinical data**, but it builds **decision trees**, so there are no weights to average like a neural network.
 
 <div class="mt-3" v-click>
 
@@ -13,7 +13,7 @@ So how do hospitals train one shared model without pooling their rows?
 
 <div class="mt-4" v-click>
 
-**Each hospital sends only a <span class="g-term" data-g="Secure histogram">secure histogram</span>** &mdash; a count of gradients per feature bin, never the patients behind them.
+**Each hospital sends only a <span class="g-term" data-g="Secure histogram">secure histogram</span>**: a count of gradients per feature bin, never the patients behind them.
 
 </div>
 

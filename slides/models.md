@@ -17,7 +17,7 @@
 
 ### 20 ready-made templates
 
-Each one is **complete and self-contained** &mdash; the training loop, the aggregation, the data loading and the privacy controls all ship together.
+Each one is **complete and self-contained**: the training loop, the aggregation, the data loading and the privacy controls all ship together.
 
 The researcher picks a model by name. **The server does the rest.**
 

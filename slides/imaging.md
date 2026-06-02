@@ -23,8 +23,8 @@ These are the actual scans dsFlower trains on. A single chest CT is a **512 &tim
 
 <div v-click>
 
-- **Radiomics** &mdash; the server turns each scan into a feature table, then trains on those features
-- **Direct image** &mdash; the model itself travels to the hospital and trains on the raw pixels
+- **Radiomics**: the server turns each scan into a feature table, then trains on those features
+- **Direct image**: the model itself travels to the hospital and trains on the raw pixels
 
 </div>
 

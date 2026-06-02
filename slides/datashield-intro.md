@@ -39,7 +39,7 @@
 </div>
 
 <div v-click="3" class="text-center" style="font-size:0.9em; color:#c8b8a8; margin-top:0.2em;">
-<strong style="color:#66ddaa;">Only aggregate statistics leave the server</strong> &mdash; never individual-level records, and the originals can't be reconstructed.
+<strong style="color:#66ddaa;">Only aggregate statistics leave the server</strong>, never individual-level records, and the originals can't be reconstructed.
 </div>
 
 <div v-click="4">
@@ -51,7 +51,7 @@
   </div>
   <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Approved functions</div>
-    <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">No raw-data access, no arbitrary code &mdash; only vetted functions run.</div>
+    <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">No raw-data access, no arbitrary code; only vetted functions run.</div>
   </div>
   <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Model limits</div>

@@ -3,7 +3,7 @@
 <div class="grid grid-cols-2 gap-8 mt-3">
 <div>
 
-For over a decade, DataSHIELD has let researchers ask **statistical questions** across hospitals &mdash; means, contingency tables, GLMs, survival curves &mdash; computed locally, with only **non-disclosive summaries** ever leaving.
+For over a decade, DataSHIELD has let researchers ask **statistical questions** across hospitals (means, contingency tables, GLMs, survival curves), computed locally, with only **non-disclosive summaries** ever leaving.
 
 <div class="mt-3" v-click>
 

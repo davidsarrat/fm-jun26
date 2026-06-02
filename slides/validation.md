@@ -34,6 +34,6 @@
 
 <div v-click class="mt-3" style="font-size: 0.85em; color: #c8b8a8;">
 
-Federated accuracy lands **within a hair of pooling all the data** &mdash; without the data ever moving.
+Federated accuracy lands **within a hair of pooling all the data**, without the data ever moving.
 
 </div>

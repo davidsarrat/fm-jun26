@@ -21,10 +21,10 @@ result <- ds.flower.run(flower, recipe)
 
 A recipe is just **four plain-language choices**:
 
-- `model` &mdash; **what** to train
-- `strategy` &mdash; **how** to combine sites
-- `target_column` &mdash; the **outcome**
-- `num_rounds` &mdash; **how long**
+- `model`: **what** to train
+- `strategy`: **how** to combine sites
+- `target_column`: the **outcome**
+- `num_rounds`: **how long**
 
 <div class="mt-3" v-click>
 
