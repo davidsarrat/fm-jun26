@@ -83,6 +83,10 @@ src: ./slides/imaging.md
 ---
 
 ---
+src: ./slides/validation.md
+---
+
+---
 src: ./slides/discussion.md
 ---
 
