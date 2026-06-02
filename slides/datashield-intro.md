@@ -10,8 +10,7 @@
     <ellipse cx="145" cy="98" rx="30" ry="7" fill="rgba(255,179,102,0.15)" stroke="#ffb366" stroke-width="1"/>
     <path d="M115,98 V124 a30,7 0 0 0 60,0 V98" fill="rgba(255,179,102,0.10)" stroke="#ffb366" stroke-width="1"/>
     <text x="145" y="158" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="3.6">raw records stay here</text>
-
-    <rect x="480" y="40" width="210" height="130" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(224,216,208,0.42)" stroke-width="1"/>
+    <rect x="480" y="40" width="210" height="130" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
     <text x="585" y="62" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="5.2" font-weight="500">Researcher</text>
     <circle cx="585" cy="98" r="8" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
     <path d="M572,120 C572,105 598,105 598,120" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
