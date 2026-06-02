@@ -1,38 +1,39 @@
 ## DataSHIELD: data stays, answers travel
 
 <div style="margin-top:0.3em;">
-<svg viewBox="0 0 720 200" style="width:100%; max-height: 235px;">
+<svg viewBox="0 0 720 200" style="width:100%; max-height: 230px;">
 
   <!-- Hospital server + researcher (click 1) -->
   <g v-click="1">
-    <rect x="30" y="35" width="210" height="135" rx="12" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.20)" stroke-width="1"/>
-    <text x="135" y="55" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="6" font-weight="500">Hospital server</text>
-    <ellipse cx="135" cy="88" rx="32" ry="8" fill="rgba(255,179,102,0.15)" stroke="#ffb366" stroke-width="1"/>
-    <path d="M103,88 V118 a32,8 0 0 0 64,0 V88" fill="rgba(255,179,102,0.10)" stroke="#ffb366" stroke-width="1"/>
-    <text x="135" y="152" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="4.2">raw records stay here</text>
+    <rect x="40" y="40" width="210" height="130" rx="12" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.28)" stroke-width="1"/>
+    <text x="145" y="62" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="5.2" font-weight="500">Hospital server</text>
+    <ellipse cx="145" cy="98" rx="30" ry="7" fill="rgba(255,179,102,0.15)" stroke="#ffb366" stroke-width="1"/>
+    <path d="M115,98 V124 a30,7 0 0 0 60,0 V98" fill="rgba(255,179,102,0.10)" stroke="#ffb366" stroke-width="1"/>
+    <text x="145" y="158" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="3.6">raw records stay here</text>
 
-    <rect x="500" y="62" width="190" height="86" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-    <circle cx="595" cy="92" r="9" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
-    <path d="M580,113 C580,100 610,100 610,113" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
-    <text x="595" y="138" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="5">Researcher</text>
+    <rect x="480" y="40" width="210" height="130" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(224,216,208,0.42)" stroke-width="1"/>
+    <text x="585" y="62" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="5.2" font-weight="500">Researcher</text>
+    <circle cx="585" cy="98" r="8" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
+    <path d="M572,120 C572,105 598,105 598,120" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
+    <text x="585" y="158" text-anchor="middle" fill="#b0a8a0" font-family="Roboto Mono" font-size="3.6">runs the analysis</text>
   </g>
 
   <!-- Authorized access (click 2) -->
   <g v-click="2">
-    <line x1="250" y1="105" x2="495" y2="105" stroke="rgba(102,221,170,0.30)" stroke-width="1" stroke-dasharray="3 3"/>
-    <text x="372" y="100" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="4.4">authorized access</text>
+    <line x1="252" y1="105" x2="478" y2="105" stroke="rgba(102,221,170,0.30)" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="365" y="100" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="3.8">authorized access</text>
   </g>
 
   <!-- Query up + aggregate down (click 3) -->
   <g v-click="3">
-    <path d="M495,80 C420,55 320,55 248,70" fill="none" stroke="#FFD000" stroke-width="2.2" stroke-dasharray="7 5">
+    <path d="M476,82 C405,58 305,58 254,72" fill="none" stroke="#FFD000" stroke-width="2" stroke-dasharray="7 5">
       <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="0.8s" repeatCount="indefinite"/>
     </path>
-    <text x="372" y="48" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="4.2">analysis request</text>
-    <path d="M248,134 C320,150 420,150 495,130" fill="none" stroke="#66ddaa" stroke-width="2.2" stroke-dasharray="7 5">
+    <text x="365" y="50" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="3.8">analysis request</text>
+    <path d="M254,138 C305,152 405,152 476,128" fill="none" stroke="#66ddaa" stroke-width="2" stroke-dasharray="7 5">
       <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="0.8s" repeatCount="indefinite"/>
     </path>
-    <text x="372" y="170" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="4.2">aggregate result</text>
+    <text x="365" y="170" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="3.8">aggregate result</text>
   </g>
 
 </svg>
