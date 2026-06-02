@@ -9,7 +9,7 @@
 | **dsFlower** | FL orchestration, privacy |
 | **dsImaging** | Medical imaging (S3/MinIO) |
 | **dsRadiomics** | Feature extraction |
-| **dsJobs** | Durable job runtime |
+| **dsHPC** | Durable job runtime |
 
 </div>
 <div>
@@ -20,7 +20,7 @@
 | **dsFlowerClient** | Recipes, training API |
 | **dsImagingClient** | Dataset discovery |
 | **dsRadiomicsClient** | Extraction workflows |
-| **dsJobsClient** | Job monitoring |
+| **dsHPCClient** | Job monitoring |
 
 </div>
 </div>
