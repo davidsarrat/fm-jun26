@@ -47,6 +47,10 @@ src: ./slides/datashield-workflow.md
 ---
 
 ---
+src: ./slides/datashield-packages.md
+---
+
+---
 src: ./slides/bridge.md
 ---
 

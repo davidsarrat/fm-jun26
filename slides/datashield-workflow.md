@@ -1,4 +1,4 @@
-## Classic DataSHIELD Workflow
+## DataSHIELD Workflow
 
 <div style="margin-top: 0.5em;">
 <svg viewBox="0 0 780 340" style="width: 100%; max-height: 390px;">
