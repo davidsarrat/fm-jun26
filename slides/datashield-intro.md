@@ -14,7 +14,7 @@
     <text x="585" y="62" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="5.2" font-weight="500">Researcher</text>
     <circle cx="585" cy="98" r="8" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
     <path d="M572,120 C572,105 598,105 598,120" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
-    <text x="585" y="158" text-anchor="middle" fill="#b0a8a0" font-family="Roboto Mono" font-size="3.6">runs the analysis</text>
+    <text x="585" y="158" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="3.6">runs the analysis</text>
   </g>
 
   <!-- Authorized access (click 2) -->
@@ -42,22 +42,22 @@
 <strong style="color:#66ddaa;">Only aggregate statistics leave the server</strong>, never individual-level records, and the originals can't be reconstructed.
 </div>
 
-<div v-click="4">
-<div style="text-align:center; font-family:'Roboto Mono'; font-size:0.7em; color:#8a7d70; letter-spacing:0.06em; margin-top:0.7em;">ENFORCED BY DISCLOSURE CONTROL</div>
+<div>
+<div v-click="4" style="text-align:center; font-family:'Roboto Mono'; font-size:0.7em; color:#c8b8a8; letter-spacing:0.06em; margin-top:0.7em;">ENFORCED BY DISCLOSURE CONTROL</div>
 <div class="grid grid-cols-4 gap-3" style="margin-top:0.4em;">
-  <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
+  <div v-click="5" style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Minimum count</div>
     <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">No cell or subgroup below 3 is ever returned.</div>
   </div>
-  <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
+  <div v-click="6" style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Approved functions</div>
     <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">No raw-data access, no arbitrary code; only vetted functions run.</div>
   </div>
-  <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
+  <div v-click="7" style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Model limits</div>
     <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">Too many parameters per subject is blocked, so a model can't memorize people.</div>
   </div>
-  <div style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
+  <div v-click="8" style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Anonymised plots</div>
     <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">Graphs use k-nearest-neighbour centroids and added noise, never raw points.</div>
   </div>
