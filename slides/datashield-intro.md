@@ -62,4 +62,5 @@
     <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.2em;">Graphs use k-nearest-neighbour centroids and added noise, never raw points.</div>
   </div>
 </div>
+<div v-click="9" style="text-align:center; font-size:0.62em; color:#b0b8c0; margin-top:0.5em;">Four of several configurable filters, all set by the data custodian.</div>
 </div>
