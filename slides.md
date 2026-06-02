@@ -59,6 +59,10 @@ src: ./slides/models.md
 ---
 
 ---
+src: ./slides/secure-xgboost.md
+---
+
+---
 src: ./slides/strategies.md
 ---
 
