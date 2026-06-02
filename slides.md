@@ -55,6 +55,10 @@ src: ./slides/datashield-ecosystem.md
 ---
 
 ---
+src: ./slides/adoption.md
+---
+
+---
 src: ./slides/bridge.md
 ---
 
