@@ -1,7 +1,7 @@
 ## DataSHIELD adoption
 
-<div style="margin-top:0.4em; display:flex; justify-content:center;">
-<svg viewBox="0 0 1000 646.8" style="width:100%; max-height:400px;">
+<div style="margin-top:0.1em; display:flex; justify-content:center;">
+<svg viewBox="0 0 1000 646.8" style="width:100%; max-height:480px;">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#88ccff" stop-opacity="0.16"/>
@@ -24,4 +24,4 @@
 </svg>
 </div>
 
-<div v-click="2" class="text-center" style="font-size:0.9em; color:#c8b8a8; margin-top:0.3em;">A federated research community connecting institutions <span style="color:#88ccff; font-weight:700;">across many countries</span>.</div>
+<div v-click="2" class="text-center" style="font-size:0.9em; color:#c8b8a8; margin-top:0.1em;">A federated research community connecting institutions <span style="color:#88ccff; font-weight:700;">across many countries</span>.</div>
