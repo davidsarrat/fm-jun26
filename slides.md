@@ -35,6 +35,14 @@ css: unocss
 </div>
 
 ---
+src: ./slides/data-sharing.md
+---
+
+---
+src: ./slides/datashield-intro.md
+---
+
+---
 src: ./slides/datashield-workflow.md
 ---
 
