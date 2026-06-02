@@ -1,7 +1,7 @@
 ## DataSHIELD adoption
 
 <div style="margin-top:0.1em; display:flex; justify-content:center;">
-<svg viewBox="0 0 1000 646.8" style="width:100%; max-height:480px;">
+<svg viewBox="0 0 1000 646.8" style="width:100%; max-height:430px;">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#88ccff" stop-opacity="0.16"/>
