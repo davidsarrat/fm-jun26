@@ -43,7 +43,7 @@
 </div>
 
 <div>
-<div v-click="4" style="text-align:center; font-family:'Roboto Mono'; font-size:0.7em; color:rgba(102,221,170,0.7); letter-spacing:0.06em; margin-top:0.7em;">ENFORCED BY DISCLOSURE CONTROL</div>
+<div v-click="4" style="text-align:center; font-family:'Roboto Mono'; font-size:0.7em; color:#66ddaa; letter-spacing:0.06em; margin-top:0.7em;">ENFORCED BY DISCLOSURE CONTROL</div>
 <div class="grid grid-cols-4 gap-3" style="margin-top:0.4em;">
   <div v-click="5" style="background:rgba(102,221,170,0.06); border:1px solid rgba(102,221,170,0.18); border-radius:8px; padding:0.55em;">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.76em; font-weight:600;">Minimum count</div>
