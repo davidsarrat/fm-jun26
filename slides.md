@@ -75,9 +75,14 @@ src: ./slides/demo.md
 ---
 
 ---
+src: ./slides/imaging.md
+---
+
+---
 src: ./slides/discussion.md
 ---
 
 ---
 src: ./slides/closing.md
+class: closing-slide
 ---
