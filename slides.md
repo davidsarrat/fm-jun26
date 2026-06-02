@@ -51,6 +51,10 @@ src: ./slides/datashield-packages.md
 ---
 
 ---
+src: ./slides/datashield-ecosystem.md
+---
+
+---
 src: ./slides/bridge.md
 ---
 
