@@ -1,16 +1,11 @@
-## Analyst API
+## The whole API is one recipe
 
-<div style="margin-top: 2em;">
+<div class="grid grid-cols-2 gap-6 mt-3 items-center">
+<div>
 
 ```r
-library(dsFlowerClient)
+flower <- ds.flower.connect(conns)
 
-# Connect to 3 hospitals
-conns <- DSI::datashield.login(logins = builder$build(),
-                               assign = TRUE, symbol = "D")
-flower <- ds.flower.connect(conns, symbol = "D")
-
-# Define what to train
 recipe <- ds.flower.recipe(
   model         = ds.flower.model.sklearn_logreg(),
   strategy      = ds.flower.strategy.fedavg(),
@@ -18,8 +13,24 @@ recipe <- ds.flower.recipe(
   num_rounds    = 10L
 )
 
-# Train across all hospitals
 result <- ds.flower.run(flower, recipe)
 ```
 
+</div>
+<div>
+
+A recipe is just **four plain-language choices**:
+
+- `model` &mdash; **what** to train
+- `strategy` &mdash; **how** to combine sites
+- `target_column` &mdash; the **outcome**
+- `num_rounds` &mdash; **how long**
+
+<div class="mt-3" v-click>
+
+Connect, compose, run. **Privacy is enforced by the server** &mdash; not something the analyst can switch off.
+
+</div>
+
+</div>
 </div>

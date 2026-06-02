@@ -15,15 +15,11 @@
 </div>
 <div>
 
-### 20 templates
+### 20 ready-made templates
 
-Each includes:
-- `client_app.py` - training loop
-- `server_app.py` - aggregation
-- `task.py` - data loading
-- `privacy_utils.py` - DP, clipping
+Each one is **complete and self-contained** &mdash; the training loop, the aggregation, the data loading and the privacy controls all ship together.
 
-The researcher picks a model. The server does the rest.
+The researcher picks a model by name. **The server does the rest.**
 
 </div>
 </div>
