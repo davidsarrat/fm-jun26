@@ -49,10 +49,10 @@
       <circle r="2" :fill="pn.dot"/>
     </g>
   </g>
-  <g font-family="Roboto Mono" font-weight="600" font-size="1.05" fill="#dfe9f5">
+  <g font-family="Roboto Mono" font-weight="600" font-size="1.3" fill="#dfe9f5">
     <text :opacity="popNodes[2].o" x="457.4" y="202.2" text-anchor="start">Senegal</text>
     <text :opacity="popNodes[1].o" x="533.4" y="236.1" text-anchor="start">Cameroon</text>
-    <text :opacity="popNodes[0].o" x="609.4" y="253.1" text-anchor="start">Kenya</text>
+    <text :opacity="popNodes[0].o" x="597.4" y="253.1" text-anchor="end">Kenya</text>
     <text :opacity="popNodes[3].o" x="614.5" y="220.3" text-anchor="start">Ethiopia</text>
   </g>
   <g :opacity="popNodes[3].o">
