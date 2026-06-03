@@ -47,6 +47,7 @@
 </div>
 
 <span v-click style="display:none"></span>
+<span v-click style="display:none"></span>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
@@ -112,6 +113,9 @@ const EU = (() => {
   return { x: minx, y: miny, w, h }
 })()
 
+// projected (Robinson) bounding box covering Senegal, Cameroon, Ethiopia, Kenya, Uganda
+const AFRICA = { x: 424.7, y: 178.8, w: 236.4, h: 100.1 }
+
 // crisp zoom: tween the viewBox (vector stays sharp every frame)
 // $clicks (auto-injected by Slidev) is scoped to THIS slide
 const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
@@ -133,7 +137,8 @@ function tweenTo(to: { x: number; y: number; w: number; h: number }) {
   }
   zoomRaf = requestAnimationFrame(step)
 }
-watch($clicks, c => tweenTo((c ?? 0) >= 1 ? EU : FULL))
+const zoomFor = (c: number | undefined) => (c ?? 0) >= 2 ? AFRICA : (c ?? 0) >= 1 ? EU : FULL
+watch($clicks, c => tweenTo(zoomFor(c)))
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -277,6 +282,6 @@ function frame(now: number) {
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { vb.value = ($clicks.value ?? 0) >= 1 ? { ...EU } : { ...FULL }; raf = requestAnimationFrame(frame) })
+onMounted(() => { vb.value = { ...zoomFor($clicks.value) }; raf = requestAnimationFrame(frame) })
 onUnmounted(() => { cancelAnimationFrame(raf); cancelAnimationFrame(zoomRaf) })
 </script>
