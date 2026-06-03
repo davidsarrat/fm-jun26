@@ -43,7 +43,7 @@
     <path d="M-26,-4 C-26,-10 -6,-10 -6,-4" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
     <rect x="8" y="-20" width="22" height="15" rx="2" fill="none" stroke="#e0d8d0" stroke-width="1.3"/>
     <line x1="5" y1="-2" x2="33" y2="-2" stroke="#e0d8d0" stroke-width="1.3" stroke-linecap="round"/>
-    <text y="26" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Researcher</text>
+    <text y="16" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Researcher</text>
   </g>
 
   <!-- Result pooling label (right of researcher) -->

@@ -4,50 +4,55 @@
 <svg viewBox="0 0 810 340" style="width: 100%; max-height: 330px;">
 
   <defs>
-    <linearGradient id="privGrad" x1="0%" y1="0%" x2="100%" y2="100%" spreadMethod="reflect">
-      <stop offset="0%" stop-color="#0B7A6E"/>
-      <stop offset="22%" stop-color="#2EE6C5"/>
-      <stop offset="42%" stop-color="#3BE0FF"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="58%" stop-color="#3BE0FF"/>
-      <stop offset="78%" stop-color="#2EE6C5"/>
-      <stop offset="100%" stop-color="#0B7A6E"/>
-      <animateTransform attributeName="gradientTransform" type="translate" values="-0.9 -0.9; 0.9 0.9; -0.9 -0.9" dur="2.6s" repeatCount="indefinite"/>
-    </linearGradient>
+    <filter id="ylwGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="b">
+        <animate attributeName="stdDeviation" values="1.4; 4.2; 1.4" dur="1.6s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feFlood flood-color="#FFD000" flood-opacity="0.9" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
   <!-- SuperNode nodes (top row) -->
   <g transform="translate(120,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
-    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
-    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital A</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :filter="$clicks>=1 ? 'url(#ylwGlow)' : 'none'" :fill="$clicks>=1 ? 'rgba(255,208,0,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? '#FFD000' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? '#FFD000' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Hospital A</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(350,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
-    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
-    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital B</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :filter="$clicks>=1 ? 'url(#ylwGlow)' : 'none'" :fill="$clicks>=1 ? 'rgba(255,208,0,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? '#FFD000' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? '#FFD000' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Hospital B</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(580,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
-    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
-    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital C</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :filter="$clicks>=1 ? 'url(#ylwGlow)' : 'none'" :fill="$clicks>=1 ? 'rgba(255,208,0,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? '#FFD000' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? '#FFD000' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Hospital C</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <!-- Server-side annotation -->
   <text x="735" y="52" fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle">Local Training</text>
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
-  <text x="735" y="76" :fill="$clicks>=1 ? 'url(#privGrad)' : '#b0b8c0'" font-family="Roboto Mono" :font-size="$clicks>=1 ? 3.5 : 3" text-anchor="middle" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Privacy Controls</text>
+  <foreignObject x="635" y="70.5" width="200" height="9">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;justify-content:center;">
+      <span class="g-term" data-g="Disclosure control" :style="'font-family:Roboto Mono,monospace;font-size:7px;line-height:1;padding:1px 3px;border-radius:2px;cursor:pointer;white-space:nowrap;' + ($clicks>=1 ? 'background:#FFD000;color:#1a1206;font-weight:600;' : 'background:transparent;color:#b0b8c0;')">Disclosure Control</span>
+    </div>
+  </foreignObject>
 
   <!-- SuperLink node (bottom center) -->
   <g transform="translate(350,280)">
     <rect x="-100" y="-38" width="200" height="76" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.20)" stroke-width="1"/>
     <text y="-6" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="6" font-weight="500">SuperLink</text>
-    <text y="16" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Analyst</text>
+    <text y="16" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.5" font-weight="500">Researcher</text>
   </g>
 
   <!-- Aggregation label (right of SuperLink) -->
@@ -89,7 +94,7 @@
   <text fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle"><textPath href="#flRR" startOffset="50%">weight updates</textPath></text>
 
   <!-- Privacy origin info box (appears on click, under Privacy Controls) -->
-  <foreignObject x="658" y="104" width="150" height="94" v-click="1">
+  <foreignObject x="620" y="118" width="190" height="138" v-click="1">
     <div xmlns="http://www.w3.org/1999/xhtml" class="priv-info">
       <div class="priv-info-title">Protection starts at the node</div>
       <div class="priv-info-body">Privacy controls act on every weight update before it ever reaches the analyst's SuperLink.</div>
@@ -102,29 +107,26 @@
 Data never leaves the hospital. Only **weight deltas** travel back.
 
 <style>
-@keyframes privPulse {
-  0%, 100% { filter: drop-shadow(0 0 1.5px rgba(46,230,197,0.4)); }
-  50% { filter: drop-shadow(0 0 6px rgba(59,224,255,0.9)); }
-}
-.priv-node-on { animation: privPulse 2.4s ease-in-out infinite; }
 .priv-info {
   height: 100%;
   box-sizing: border-box;
-  border-radius: 7px;
-  padding: 7px 9px;
+  border-radius: 9px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3px;
-  background: linear-gradient(135deg, rgba(46,230,197,0.18), rgba(59,224,255,0.10));
-  border: 1px solid rgba(80,230,210,0.5);
+  gap: 8px;
+  background: linear-gradient(150deg, rgba(38,26,6,0.80), rgba(16,11,3,0.66));
+  border: 1px solid rgba(255,208,0,0.40);
+  border-left: 3px solid #FFD000;
+  box-shadow: inset 0 0 24px rgba(255,208,0,0.06);
 }
 .priv-info-title {
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.25;
-  background: linear-gradient(135deg, #5FF5D8, #3BE0FF);
+  background: linear-gradient(135deg, #FFE066, #FFB300);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,8 +134,8 @@ Data never leaves the hospital. Only **weight deltas** travel back.
 }
 .priv-info-body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 7px;
-  line-height: 1.45;
-  color: #e3f7f2;
+  font-size: 9.5px;
+  line-height: 1.5;
+  color: #f2e8d2;
 }
 </style>
