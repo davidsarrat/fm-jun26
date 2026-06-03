@@ -61,7 +61,7 @@ onMounted(() => {
 
 <div style="color: #88ccff; font-size: 1.2em; font-weight: 600; margin-bottom: 6px;">Federated Heart Disease Risk</div>
 
-<div style="color: #c8c0b8; font-size: 0.92em; line-height: 1.5; margin-bottom: 12px;">Three cardiology cohorts, each holding its own patients, train one shared model to flag heart disease from 10 routine clinical measurements. The records never leave the hospital; only model updates travel.</div>
+<div style="color: #c8c0b8; font-size: 0.92em; line-height: 1.5; margin-bottom: 12px;">These are three of the institutions that originally collected the UCI Heart Disease data. Each keeps its own patients and never shares a row; together they train one shared model to predict whether a patient has heart disease.</div>
 
 <!-- Institutions grid -->
 <div style="display: flex; gap: 8px; margin-bottom: 12px;">
@@ -111,6 +111,7 @@ onMounted(() => {
     <span style="background:rgba(255,208,0,0.10); border:1px solid rgba(255,208,0,0.18); border-radius:4px; padding:2px 7px; color:#FFD000;">exang</span>
     <span style="background:rgba(255,208,0,0.10); border:1px solid rgba(255,208,0,0.18); border-radius:4px; padding:2px 7px; color:#FFD000;">oldpeak</span>
   </div>
+  <div style="color: #b8b0a8; font-size: 0.88em; margin-top: 5px;">Age and sex, chest-pain type, blood pressure, cholesterol, blood sugar, resting ECG, and the heart's response to exercise.</div>
 </div>
 
 <!-- Model config -->
@@ -209,7 +210,7 @@ run <span style="color:#b0a8a0;">&lt;-</span> dsFlowerClient::<span style="color
 
 <!-- Predict on real held-out patients -->
 <div v-click style="background: rgba(15,10,8,0.7); border-radius: 6px; padding: 0.5em 0.8em; margin-top: 4px; color: #c8b8a8;">
-<span style="color:#666;"># 3 held-out patients, one per site (raw clinical values, all 10 features)</span>
+<span style="color:#666;"># 3 held-out patients (raw clinical values, all 10 features)</span>
 <br/>patients <span style="color:#b0a8a0;">&lt;-</span> <span style="color:#78a9ff;">data.frame</span>(
 <br/>&nbsp;&nbsp;age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">61</span>, <span style="color:#88ccff;">53</span>, <span style="color:#88ccff;">69</span>),
 <br/>&nbsp;&nbsp;sex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">1</span>, <span style="color:#88ccff;">0</span>, <span style="color:#88ccff;">1</span>),
@@ -226,11 +227,11 @@ run <span style="color:#b0a8a0;">&lt;-</span> dsFlowerClient::<span style="color
 </div>
 
 <div v-click style="background: rgba(15,10,8,0.5); border-left: 3px solid #444; border-radius: 0 6px 6px 0; padding: 0.4em 0.8em; margin: 2px 0; color: #b8b0a8;">
-<div style="display:grid; grid-template-columns: 1.1fr 1.6fr 0.9fr 0.9fr; gap: 4px 12px; align-items:center;">
-  <div style="color:#ffb366;">site</div><div style="color:#ffb366;">patient</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
-  <div style="color:#c8c0b8;">cleveland</div><div style="color:#b0a8a0;">61yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.88</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
-  <div style="color:#c8c0b8;">hungary</div><div style="color:#b0a8a0;">53yo F · cp2</div><div style="text-align:right; color:#FFD000;">0.47</div><div style="text-align:right; color:#66ddaa;">no disease &check;</div>
-  <div style="color:#c8c0b8;">va</div><div style="color:#b0a8a0;">69yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.89</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
+<div style="display:grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4px 12px; align-items:center;">
+  <div style="color:#ffb366;">patient</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
+  <div style="color:#b0a8a0;">61yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.88</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
+  <div style="color:#b0a8a0;">53yo F · cp2</div><div style="text-align:right; color:#FFD000;">0.47</div><div style="text-align:right; color:#66ddaa;">no disease &check;</div>
+  <div style="color:#b0a8a0;">69yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.89</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
 </div>
 </div>
 
