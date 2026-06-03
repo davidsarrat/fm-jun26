@@ -1,12 +1,18 @@
 ## dsFlower Workflow
 
-<div style="margin-top: 0.5em;">
-<svg viewBox="0 0 810 340" style="width: 100%; max-height: 390px;">
+<div style="margin-top: 0.2em;">
+<svg viewBox="0 0 810 340" style="width: 100%; max-height: 330px;">
 
   <defs>
-    <linearGradient id="privGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#9D4EDD"/>
-      <stop offset="100%" stop-color="#FF4D9D"/>
+    <linearGradient id="privGrad" x1="0%" y1="0%" x2="100%" y2="100%" spreadMethod="reflect">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="20%" stop-color="#7B2FF7"/>
+      <stop offset="40%" stop-color="#FF4D9D"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FF4D9D"/>
+      <stop offset="80%" stop-color="#7B2FF7"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-0.85 -0.85; 0.85 0.85; -0.85 -0.85" dur="3s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
 
@@ -35,7 +41,7 @@
   <!-- Server-side annotation -->
   <text x="735" y="52" fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle">Local Training</text>
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
-  <text x="735" y="76" :fill="$clicks>=1 ? 'url(#privGrad)' : '#b0b8c0'" font-family="Roboto Mono" :font-size="$clicks>=1 ? 3.5 : 3" text-anchor="middle" :font-weight="$clicks>=1 ? 700 : 400" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Privacy Controls</text>
+  <text x="735" y="76" :fill="$clicks>=1 ? 'url(#privGrad)' : '#b0b8c0'" font-family="Roboto Mono" :font-size="$clicks>=1 ? 3.5 : 3" text-anchor="middle" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Privacy Controls</text>
 
   <!-- SuperLink node (bottom center) -->
   <g transform="translate(350,280)">
