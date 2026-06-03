@@ -13,13 +13,11 @@
 </div>
 <div>
 
-These are the actual scans dsFlower trains on. A chest CT is a **512 &times; 512 &times; N** volume, and it never leaves the hospital.
+A chest CT is a **512 &times; 512 &times; N** volume, far too large and too sensitive to move. dsFlower ships three vision templates for medical imaging, each validated on real medical images.
 
 <div class="mt-3" v-click>
 
-**Three vision templates ship ready to run:**
-
-<div class="grid grid-cols-1 gap-2 mt-2">
+<div class="grid grid-cols-1 gap-2">
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>ResNet-18</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>DenseNet-121</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>U-Net 2D</strong> <span style="color:#FFD000;">&middot; segmentation</span></div>
@@ -29,13 +27,7 @@ These are the actual scans dsFlower trains on. A chest CT is a **512 &times; 512
 
 <div class="mt-3" v-click>
 
-The model travels to the hospital and trains on the raw pixels. Only updates come back.
-
-</div>
-
-<div class="mt-2" v-click style="font-size: 0.85em; color: #66ddaa;">
-
-All three validated on real medical images.
+Training runs inside each hospital. Only model updates leave; the images never do.
 
 </div>
 
