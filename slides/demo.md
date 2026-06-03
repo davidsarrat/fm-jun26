@@ -163,7 +163,6 @@ run <span style="color:#b0a8a0;">&lt;-</span> dsFlowerClient::<span style="color
 <br/>&nbsp;&nbsp;features = <span style="color:#78a9ff;">c</span>(<span style="color:#ffaacc;">"age"</span>, <span style="color:#ffaacc;">"sex"</span>, <span style="color:#ffaacc;">"cp"</span>, <span style="color:#ffaacc;">"trestbps"</span>, <span style="color:#ffaacc;">"chol"</span>, <span style="color:#ffaacc;">"fbs"</span>, <span style="color:#ffaacc;">"restecg"</span>, <span style="color:#ffaacc;">"thalach"</span>, <span style="color:#ffaacc;">"exang"</span>, <span style="color:#ffaacc;">"oldpeak"</span>),
 <br/>&nbsp;&nbsp;model &nbsp;&nbsp;&nbsp;= <span style="color:#ffaacc;">"sklearn_logreg"</span>,
 <br/>&nbsp;&nbsp;strategy = <span style="color:#ffaacc;">"fedavg"</span>,
-<br/>&nbsp;&nbsp;privacy &nbsp;= <span style="color:#ffaacc;">"trusted_internal"</span>,
 <br/>&nbsp;&nbsp;rounds &nbsp;&nbsp;= <span style="color:#88ccff;">10L</span>
 <br/>)
 </div>

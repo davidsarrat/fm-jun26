@@ -27,7 +27,7 @@ A chest CT is a **512 &times; 512 &times; N** volume, far too large and too sens
 
 <div class="mt-3" v-click>
 
-Training runs inside each hospital. Only model updates leave; the images never do.
+**dsImaging** brings medical images into the DataSHIELD node, so tools like Flower can train on them where they already live. Training runs inside each hospital; only model updates leave, the images never do.
 
 </div>
 
