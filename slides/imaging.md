@@ -1,6 +1,8 @@
 ## Vision
 
-<div class="grid grid-cols-2 gap-8 mt-2 items-center">
+<div class="h-full flex flex-col justify-center -mt-8">
+
+<div class="grid grid-cols-2 gap-8 items-center">
 <div class="flex flex-col items-center gap-3">
 
 <div class="flex gap-3">
@@ -28,4 +30,6 @@ dsFlower ships three vision templates, each validated on real medical images.
 </div>
 
 </div>
+</div>
+
 </div>
