@@ -193,17 +193,20 @@ run <span style="color:#b0a8a0;">&lt;-</span> dsFlowerClient::<span style="color
   <div style="color:#e0d8d0;">Federated (dsFlower)</div><div style="text-align:right; color:#66ddaa;">0.903</div><div style="text-align:right; color:#66ddaa;">0.830</div><div style="text-align:right; color:#66ddaa;">0.405</div>
   <div style="color:#888;">&Delta; (fed &minus; central)</div><div style="text-align:right; color:#888;">&minus;0.003</div><div style="text-align:right; color:#888;">+0.015</div><div style="text-align:right; color:#888;">+0.006</div>
 </div>
-<div style="margin-top:6px; color:#66ddaa;">Federated model matches the pooled-data baseline. No data ever moved.</div>
+<div style="margin-top:6px; color:#b0a8a0;">Per-site held-out AUC &middot; cleveland <span style="color:#e0d8d0;">0.90</span> (n=59) &middot; hungary <span style="color:#e0d8d0;">0.93</span> (n=51) &middot; va <span style="color:#e0d8d0;">0.67</span> (n=25)</div>
+<div style="margin-top:4px; color:#66ddaa;">Federated model matches the pooled-data baseline. No data ever moved.</div>
 </div>
 
 <!-- Predict on real held-out patients -->
 <div v-click style="background: rgba(15,10,8,0.7); border-radius: 6px; padding: 0.5em 0.8em; margin-top: 4px; color: #c8b8a8;">
-<span style="color:#78a9ff;">ds.flower.predict</span>(run, newdata = held_out_patients, type = <span style="color:#ffaacc;">"prob"</span>)
+<span style="color:#666;"># 3 held-out patients, standardized with the training scaler</span>
+<br/><span style="color:#78a9ff;">ds.flower.predict</span>(run, newdata = held_out, type = <span style="color:#ffaacc;">"prob"</span>)
+<br/><span style="color:#b0a8a0;">[1] 0.8975 0.3981 0.9125</span>
 </div>
 
 <div v-click style="background: rgba(15,10,8,0.5); border-left: 3px solid #444; border-radius: 0 6px 6px 0; padding: 0.4em 0.8em; margin: 2px 0; color: #b8b0a8;">
 <div style="display:grid; grid-template-columns: 1.1fr 2.5fr 0.9fr 0.9fr; gap: 4px 12px; align-items:center;">
-  <div style="color:#ffb366;">site</div><div style="color:#ffb366;">patient</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
+  <div style="color:#ffb366;">site</div><div style="color:#ffb366;">patient (clinical profile)</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
   <div style="color:#c8c0b8;">cleveland</div><div style="color:#b0a8a0;">61yo M · cp4 · chol207 · oldpeak1.9</div><div style="text-align:right; color:#FFD000;">0.90</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
   <div style="color:#c8c0b8;">hungary</div><div style="color:#b0a8a0;">53yo F · cp2 · chol216 · oldpeak2.0</div><div style="text-align:right; color:#FFD000;">0.40</div><div style="text-align:right; color:#66ddaa;">no disease &check;</div>
   <div style="color:#c8c0b8;">va</div><div style="color:#b0a8a0;">69yo M · cp4 · chol208 · oldpeak2.0</div><div style="text-align:right; color:#FFD000;">0.91</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
