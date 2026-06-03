@@ -56,8 +56,8 @@ function closeGlossary(e) {
 onMounted(() => document.addEventListener('click', onGlossaryClick))
 onUnmounted(() => document.removeEventListener('click', onGlossaryClick))
 
-// Countdown: 10 minutes
-const totalSeconds = ref(10 * 60)
+// Countdown: 20 minutes
+const totalSeconds = ref(20 * 60)
 let timer = null
 
 onMounted(() => {
