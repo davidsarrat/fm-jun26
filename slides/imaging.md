@@ -1,6 +1,6 @@
-## Vision
+<div class="h-full flex flex-col justify-center">
 
-<div class="h-full flex flex-col justify-center -mt-8">
+## Vision
 
 <div class="grid grid-cols-2 gap-8 items-center">
 <div class="flex flex-col items-center gap-3">
