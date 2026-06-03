@@ -27,11 +27,5 @@ dsFlower ships three vision templates, each validated on real medical images.
 
 </div>
 
-<div class="mt-3" v-click>
-
-Training runs inside each hospital; only model updates leave, the images never do.
-
-</div>
-
 </div>
 </div>
