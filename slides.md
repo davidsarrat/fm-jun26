@@ -76,6 +76,10 @@ src: ./slides/dsflower-workflow.md
 ---
 
 ---
+src: ./slides/privacy-model.md
+---
+
+---
 src: ./slides/server-stack.md
 ---
 
@@ -97,10 +101,6 @@ src: ./slides/secure-xgboost.md
 
 ---
 src: ./slides/strategies.md
----
-
----
-src: ./slides/privacy-model.md
 ---
 
 ---
