@@ -25,14 +25,14 @@
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#ff6b6b" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
       <div class="pc-label" style="color:#ff6b6b;">Built for simple statistical studies</div>
-      <div class="pc-sub">The engine was originally designed for classical epidemiology: means, contingency tables, GLMs. It runs one-shot aggregate queries, not heavy or iterative computation.</div>
+      <div class="pc-sub">The engine was originally designed for classical epidemiology and more basic statistics. It runs one-shot aggregate queries, not heavy or iterative computation.</div>
     </div>
     <div v-click="4" class="pc-card pc-red">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#ff6b6b" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
       <div class="pc-label" style="color:#ff6b6b;">No machine-learning tools</div>
-      <div class="pc-sub">No engine to train a model over many rounds: no parameter exchange, no aggregation strategies, no neural networks, gradient-boosted trees or imaging.</div>
+      <div class="pc-sub">No way to train a model over many rounds: no iterative parameter exchange, no support for modern neural networks or deep learning.</div>
     </div>
   </div>
 </div>
