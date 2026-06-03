@@ -1,6 +1,6 @@
 ## DataSHIELD adoption
 
-<div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center; overflow:hidden;">
+<div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center; overflow:hidden; position:relative;">
 <svg :viewBox="viewBox" style="width:100%; max-height:540px;">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
@@ -54,8 +54,14 @@
     <text x="588" y="209.6" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="1.05" font-weight="600">next week, btw! :)</text>
   </g>
 </svg>
+<Transition name="card-fade">
+  <div v-if="cardText" :key="cardText" class="region-card">{{ cardText }}</div>
+</Transition>
 </div>
 
+<span v-click style="display:none"></span>
+<span v-click style="display:none"></span>
+<span v-click style="display:none"></span>
 <span v-click style="display:none"></span>
 <span v-click style="display:none"></span>
 
@@ -157,10 +163,17 @@ function tweenTo(to: { x: number; y: number; w: number; h: number }) {
   }
   zoomRaf = requestAnimationFrame(step)
 }
-const zoomFor = (c: number | undefined) => (c ?? 0) >= 2 ? AFRICA : (c ?? 0) >= 1 ? EU : FULL
+const zoomFor = (c: number | undefined) => (c ?? 0) >= 4 ? AFRICA : (c ?? 0) >= 2 ? EU : FULL
+const cardText = computed(() => {
+  const c = $clicks.value ?? 0
+  return c === 1 ? '11 international consortia / projects'
+    : c === 3 ? '36 european projects'
+    : c === 5 ? 'Planned: 50 pan-African nodes'
+    : ''
+})
 watch($clicks, c => {
   tweenTo(zoomFor(c))
-  africaT0 = (c ?? 0) >= 2 ? performance.now() : 0
+  africaT0 = (c ?? 0) >= 4 ? performance.now() : 0
 })
 
 const busy: boolean[] = COORD.map(() => false)
@@ -313,6 +326,34 @@ function frame(now: number) {
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { vb.value = { ...zoomFor($clicks.value) }; africaT0 = ($clicks.value ?? 0) >= 2 ? performance.now() : 0; raf = requestAnimationFrame(frame) })
+onMounted(() => { vb.value = { ...zoomFor($clicks.value) }; africaT0 = ($clicks.value ?? 0) >= 4 ? performance.now() : 0; raf = requestAnimationFrame(frame) })
 onUnmounted(() => { cancelAnimationFrame(raf); cancelAnimationFrame(zoomRaf) })
 </script>
+
+<style scoped>
+.region-card {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 1rem;
+  z-index: 5;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.92em;
+  font-weight: 600;
+  color: #e8ecf2;
+  background: rgba(8, 12, 20, 0.55);
+  border: 1px solid rgba(136, 204, 255, 0.28);
+  border-left: 3px solid #88ccff;
+  border-radius: 8px;
+  padding: 0.5em 0.9em;
+  backdrop-filter: blur(4px);
+}
+.card-fade-enter-active,
+.card-fade-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.card-fade-enter-from,
+.card-fade-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+</style>
