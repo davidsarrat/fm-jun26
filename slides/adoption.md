@@ -58,10 +58,10 @@ const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
-const ACK_MS = 200
+const ACK_MS = 500
 const SPAWN_MIN_MS = 650, SPAWN_RAND_MS = 900
 const MAX_CONCURRENT = 5
-const MIN_D = 12, LOCAL_MAXD = 50
+const MIN_D = 12, LOCAL_MAXD = 50, MIN_SEP = 40
 const BRIDGE_FORCE_MS = 3000
 const BRIDGE_CHANCE = 0.3
 
@@ -83,6 +83,17 @@ const NEAR: number[][] = IDS.map(i => IDS.filter(j => j !== i && dist(i, j) >= M
 const NEAREST: number[] = IDS.map(i => Math.min(...IDS.filter(j => j !== i).map(j => dist(i, j))))
 const LOCAL_CAP = IDS.filter(i => NEAR[i].length >= 3)
 const REMOTE_NODES = IDS.filter(i => NEAREST[i] > LOCAL_MAXD)
+
+// geographic regions via union-find at LOCAL_MAXD radius
+const parent = IDS.slice()
+function find(x: number): number { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x] } return x }
+for (let i = 0; i < IDS.length; i++) for (let j = i + 1; j < IDS.length; j++) if (dist(i, j) <= LOCAL_MAXD) parent[find(i)] = find(j)
+const REGION = IDS.map(i => find(i))
+const REGION_SIZE = new Map<number, number>()
+IDS.forEach(i => REGION_SIZE.set(REGION[i], (REGION_SIZE.get(REGION[i]) ?? 0) + 1))
+const regCap = new Map<number, number[]>()
+LOCAL_CAP.forEach(i => { if (!regCap.has(REGION[i])) regCap.set(REGION[i], []); regCap.get(REGION[i])!.push(i) })
+const REGION_IDS = [...regCap.keys()]
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -151,12 +162,25 @@ function tryBridge(now: number): boolean {
 }
 
 function tryLocal(now: number): boolean {
-  for (const emitter of shuffle(LOCAL_CAP.filter(i => !busy[i]))) {
-    const pool = NEAR[emitter].filter(i => !busy[i])
-    if (pool.length < 3) continue
-    const k = Math.min(3 + Math.floor(Math.random() * 3), pool.length)
-    startTxn(emitter, weightedPick(emitter, pool, k), now, false)
-    return true
+  const activeEmitters = txns.map(t => t.emitter)
+  const actCount = new Map<number, number>()
+  for (const t of txns) actCount.set(REGION[t.emitter], (actCount.get(REGION[t.emitter]) ?? 0) + 1)
+  const usable = REGION_IDS.filter(r => regCap.get(r)!.some(i => !busy[i]))
+  if (!usable.length) return false
+  usable.sort((a, b) => {
+    const sa = (actCount.get(a) ?? 0) / Math.sqrt(REGION_SIZE.get(a)!)
+    const sb = (actCount.get(b) ?? 0) / Math.sqrt(REGION_SIZE.get(b)!)
+    return sa !== sb ? sa - sb : REGION_SIZE.get(b)! - REGION_SIZE.get(a)!
+  })
+  for (const r of usable) {
+    for (const emitter of shuffle(regCap.get(r)!.filter(i => !busy[i]))) {
+      if (activeEmitters.some(a => dist(emitter, a) < MIN_SEP)) continue
+      const pool = NEAR[emitter].filter(j => !busy[j])
+      if (pool.length < 3) continue
+      const k = Math.min(3 + Math.floor(Math.random() * 3), pool.length)
+      startTxn(emitter, weightedPick(emitter, pool, k), now, false)
+      return true
+    }
   }
   return false
 }
@@ -172,7 +196,7 @@ function trySpawn(now: number) {
 function frame(now: number) {
   if (now >= nextSpawn) {
     trySpawn(now)
-    nextSpawn = now + SPAWN_MIN_MS + Math.random() * SPAWN_RAND_MS
+    nextSpawn = now + SPAWN_MIN_MS + ACK_MS + Math.random() * SPAWN_RAND_MS
   }
   const done: Txn[] = []
   for (const tx of txns) {
@@ -191,7 +215,7 @@ function frame(now: number) {
       tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
     } else {
-      tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.targets.forEach(t => setIdle(t))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = D })
     }
   }
