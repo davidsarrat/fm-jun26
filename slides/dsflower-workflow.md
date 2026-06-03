@@ -99,7 +99,7 @@
 </svg>
 </div>
 
-Model weights flow via **gRPC/TLS**. Raw data stays on each hospital's server. Only weight deltas travel.
+Data never leaves the hospital. Only **weight deltas** travel back.
 
 <style>
 @keyframes privPulse {
