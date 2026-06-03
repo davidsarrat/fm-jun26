@@ -59,10 +59,6 @@ src: ./slides/adoption.md
 ---
 
 ---
-src: ./slides/bridge.md
----
-
----
 src: ./slides/datashield-profile.md
 ---
 
