@@ -1,4 +1,4 @@
-## What we're working with
+## Vision
 
 <div class="grid grid-cols-2 gap-8 mt-2 items-center">
 <div class="flex flex-col items-center gap-3">
@@ -13,24 +13,29 @@
 </div>
 <div>
 
-These are the actual scans dsFlower trains on. A single chest CT is a **512 &times; 512 &times; N** volume, and it never leaves the hospital.
+These are the actual scans dsFlower trains on. A chest CT is a **512 &times; 512 &times; N** volume, and it never leaves the hospital.
 
 <div class="mt-3" v-click>
 
-**Two paths, both federated:**
+**Three vision templates ship ready to run:**
 
+<div class="grid grid-cols-1 gap-2 mt-2">
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>ResNet-18</strong> <span style="color:#8a7d70;">&middot; image classification</span></div>
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>DenseNet-121</strong> <span style="color:#8a7d70;">&middot; image classification</span></div>
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>U-Net 2D</strong> <span style="color:#8a7d70;">&middot; segmentation</span></div>
 </div>
-
-<div v-click>
-
-- **Radiomics**: the server turns each scan into a feature table, then trains on those features
-- **Direct image**: the model itself travels to the hospital and trains on the raw pixels
 
 </div>
 
 <div class="mt-3" v-click>
 
-The hospital keeps the pixels. Only model updates come back.
+The model travels to the hospital and trains on the raw pixels. Only updates come back.
+
+</div>
+
+<div class="mt-2" v-click style="font-size: 0.85em; color: #66ddaa;">
+
+All three validated on real medical images.
 
 </div>
 
