@@ -13,11 +13,13 @@
 </div>
 <div>
 
-A chest CT is a **512 &times; 512 &times; N** volume, far too large and too sensitive to move. dsFlower ships three vision templates for medical imaging, each validated on real medical images.
+**dsImaging** brings medical images into the DataSHIELD node and governs them like any other variable. That interoperability is what lets tools like Flower train vision models on data far too large and sensitive to move.
 
 <div class="mt-3" v-click>
 
-<div class="grid grid-cols-1 gap-2">
+dsFlower ships three vision templates, each validated on real medical images.
+
+<div class="grid grid-cols-1 gap-2 mt-2">
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>ResNet-18</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>DenseNet-121</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
   <div class="step-card" style="padding: 0.55em 0.9em;"><strong>U-Net 2D</strong> <span style="color:#FFD000;">&middot; segmentation</span></div>
@@ -27,7 +29,7 @@ A chest CT is a **512 &times; 512 &times; N** volume, far too large and too sens
 
 <div class="mt-3" v-click>
 
-**dsImaging** brings medical images into the DataSHIELD node, so tools like Flower can train on them where they already live. Training runs inside each hospital; only model updates leave, the images never do.
+Training runs inside each hospital; only model updates leave, the images never do.
 
 </div>
 

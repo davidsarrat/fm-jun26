@@ -101,10 +101,6 @@ src: ./slides/strategies.md
 ---
 
 ---
-src: ./slides/demo-intro.md
----
-
----
 src: ./slides/demo.md
 ---
 
