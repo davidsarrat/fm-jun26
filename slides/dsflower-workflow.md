@@ -5,34 +5,34 @@
 
   <defs>
     <linearGradient id="privGrad" x1="0%" y1="0%" x2="100%" y2="100%" spreadMethod="reflect">
-      <stop offset="0%" stop-color="#00E5FF"/>
-      <stop offset="20%" stop-color="#7B2FF7"/>
-      <stop offset="40%" stop-color="#FF4D9D"/>
+      <stop offset="0%" stop-color="#0B7A6E"/>
+      <stop offset="22%" stop-color="#2EE6C5"/>
+      <stop offset="42%" stop-color="#3BE0FF"/>
       <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="60%" stop-color="#FF4D9D"/>
-      <stop offset="80%" stop-color="#7B2FF7"/>
-      <stop offset="100%" stop-color="#00E5FF"/>
-      <animateTransform attributeName="gradientTransform" type="translate" values="-0.85 -0.85; 0.85 0.85; -0.85 -0.85" dur="3s" repeatCount="indefinite"/>
+      <stop offset="58%" stop-color="#3BE0FF"/>
+      <stop offset="78%" stop-color="#2EE6C5"/>
+      <stop offset="100%" stop-color="#0B7A6E"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-0.9 -0.9; 0.9 0.9; -0.9 -0.9" dur="2.6s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
 
   <!-- SuperNode nodes (top row) -->
   <g transform="translate(120,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
     <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital A</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(350,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
     <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital B</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(580,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :class="$clicks>=1 ? 'priv-node-on' : ''" :fill="$clicks>=1 ? 'rgba(46,230,197,0.14)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
     <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital C</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
@@ -89,7 +89,7 @@
   <text fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle"><textPath href="#flRR" startOffset="50%">weight updates</textPath></text>
 
   <!-- Privacy origin info box (appears on click, under Privacy Controls) -->
-  <foreignObject x="662" y="108" width="144" height="104" v-click="1">
+  <foreignObject x="658" y="104" width="150" height="94" v-click="1">
     <div xmlns="http://www.w3.org/1999/xhtml" class="priv-info">
       <div class="priv-info-title">Protection starts at the node</div>
       <div class="priv-info-body">Privacy controls act on every weight update before it ever reaches the analyst's SuperLink.</div>
@@ -102,21 +102,29 @@
 Model weights flow via **gRPC/TLS**. Raw data stays on each hospital's server. Only weight deltas travel.
 
 <style>
+@keyframes privPulse {
+  0%, 100% { filter: drop-shadow(0 0 1.5px rgba(46,230,197,0.4)); }
+  50% { filter: drop-shadow(0 0 6px rgba(59,224,255,0.9)); }
+}
+.priv-node-on { animation: privPulse 2.4s ease-in-out infinite; }
 .priv-info {
   height: 100%;
   box-sizing: border-box;
   border-radius: 7px;
-  padding: 6px 8px;
-  background: linear-gradient(135deg, rgba(157,78,221,0.20), rgba(255,77,157,0.12));
-  border: 1px solid rgba(255,120,200,0.5);
+  padding: 7px 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  background: linear-gradient(135deg, rgba(46,230,197,0.18), rgba(59,224,255,0.10));
+  border: 1px solid rgba(80,230,210,0.5);
 }
 .priv-info-title {
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
-  font-size: 8px;
-  line-height: 1.2;
-  margin-bottom: 4px;
-  background: linear-gradient(135deg, #C77DFF, #FF4D9D);
+  font-size: 9px;
+  line-height: 1.25;
+  background: linear-gradient(135deg, #5FF5D8, #3BE0FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -124,8 +132,8 @@ Model weights flow via **gRPC/TLS**. Raw data stays on each hospital's server. O
 }
 .priv-info-body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 6.5px;
-  line-height: 1.4;
-  color: #ece3f5;
+  font-size: 7px;
+  line-height: 1.45;
+  color: #e3f7f2;
 }
 </style>
