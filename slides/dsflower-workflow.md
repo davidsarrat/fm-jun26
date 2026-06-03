@@ -110,33 +110,28 @@ Data never leaves the hospital. Only **weight deltas** travel back.
 .priv-info {
   height: 100%;
   box-sizing: border-box;
-  border-radius: 9px;
-  padding: 10px 14px;
+  border-radius: 6px;
+  padding: 10px 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
-  background: linear-gradient(150deg, rgba(38,26,6,0.80), rgba(16,11,3,0.66));
-  border: 1px solid rgba(255,208,0,0.40);
-  border-left: 3px solid #FFD000;
-  box-shadow: inset 0 0 24px rgba(255,208,0,0.06);
+  gap: 5px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-left: 2px solid rgba(255,208,0,0.65);
 }
 .priv-info-title {
   font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 12.5px;
   line-height: 1.25;
-  background: linear-gradient(135deg, #FFE066, #FFB300);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #FFD000;
 }
 .priv-info-body {
   font-family: 'Montserrat', sans-serif;
   font-size: 10.5px;
   line-height: 1.5;
-  color: #f2e8d2;
+  color: #d8d0c8;
 }
 .disc-on {
   border-bottom: none !important;
