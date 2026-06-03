@@ -8,7 +8,7 @@
   <img src="/ct-lung-2.png" style="width: 200px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);" />
 </div>
 
-<span style="font-family: 'Roboto Mono', monospace; font-size: 0.62em; color: #8a7d70;">Axial chest CT, lung window &middot; MosMedData (CC BY-NC-SA 4.0)</span>
+<span style="font-family: 'Roboto Mono', monospace; font-size: 0.62em; color: #ffffff;">Axial chest CT, lung window &middot; MosMedData (CC BY-NC-SA 4.0)</span>
 
 </div>
 <div>
