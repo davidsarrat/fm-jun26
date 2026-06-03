@@ -45,14 +45,13 @@
   </g>
   <g>
     <g v-for="(pn, i) in popNodes" :key="'pop' + i" :transform="`translate(${pn.x},${pn.y}) scale(${pn.scale})`" :opacity="pn.o">
-      <circle r="3" :fill="pn.color" :opacity="pn.glow"/>
-      <circle r="1.2" :fill="pn.dot"/>
+      <circle r="4.6" :fill="pn.color" :opacity="pn.glow"/>
+      <circle r="2" :fill="pn.dot"/>
     </g>
   </g>
   <g :opacity="popNodes[3].o">
-    <line x1="607" y1="213" x2="601" y2="198" stroke="#FFD000" stroke-width="0.6" stroke-linecap="round"/>
-    <rect x="571" y="185" width="58" height="12" rx="2.5" fill="rgba(0,0,0,0.55)" stroke="#FFD000" stroke-width="0.4" stroke-opacity="0.6"/>
-    <text x="600" y="193.2" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="4.6" font-weight="600">next week, btw! :)</text>
+    <line x1="607" y1="214" x2="599" y2="210" stroke="#FFD000" stroke-width="0.4" stroke-linecap="round"/>
+    <text x="595" y="208.4" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="1.6" font-weight="600">next week, btw! :)</text>
   </g>
 </svg>
 </div>
@@ -309,7 +308,7 @@ function frame(now: number) {
     const p = Math.min(1, e / POP_DUR), c1 = 1.70158, c3 = c1 + 1
     pn.scale = 1 + c3 * (p - 1) ** 3 + c1 * (p - 1) ** 2
     pn.o = Math.min(1, e / 120)
-    pn.glow = pn.hi ? 0.5 + 0.12 * Math.sin(now * 0.005 + i) : 0.08 + 0.04 * Math.sin(now * 0.002 + i)
+    pn.glow = 0.5 + 0.12 * Math.sin(now * 0.005 + i)
   })
   raf = requestAnimationFrame(frame)
 }
