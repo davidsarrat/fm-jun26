@@ -1,63 +1,69 @@
 ## dsFlower's Approach
 
 <div style="margin-top: 0.2em;">
-<svg viewBox="0 0 800 380" style="width: 100%; max-height: 330px;">
+<svg viewBox="0 0 920 400" style="width: 100%; max-height: 340px;">
 
   <!-- Trusted reviewer -->
-  <rect x="20" y="45" width="185" height="105" rx="14" fill="rgba(102,221,170,0.10)" stroke="rgba(102,221,170,0.30)" stroke-width="1.5"/>
-  <circle cx="108" cy="70" r="7" fill="none" stroke="#66ddaa" stroke-width="1.6"/>
-  <line x1="113" y1="75" x2="119" y2="81" stroke="#66ddaa" stroke-width="1.8" stroke-linecap="round"/>
-  <text x="112" y="104" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="7" font-weight="600">Trusted reviewer</text>
-  <text x="112" y="120" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.3">biomedical / DataSHIELD</text>
-  <text x="112" y="133" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4.3">privacy authority</text>
+  <rect x="20" y="50" width="215" height="115" rx="14" fill="rgba(102,221,170,0.10)" stroke="rgba(102,221,170,0.30)" stroke-width="1.5"/>
+  <circle cx="123" cy="72" r="7" fill="none" stroke="#66ddaa" stroke-width="1.6"/>
+  <line x1="128" y1="77" x2="134" y2="83" stroke="#66ddaa" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="127" y="106" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="6" font-weight="600">Trusted reviewer</text>
+  <text x="127" y="122" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4">biomedical / DataSHIELD</text>
+  <text x="127" y="134" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4">privacy authority</text>
 
   <!-- Flower Hub -->
-  <rect x="300" y="35" width="200" height="150" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
-  <text x="400" y="68" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="8" font-weight="600">Flower Hub</text>
-  <rect x="320" y="88" width="160" height="30" rx="6" fill="rgba(212,160,23,0.16)" stroke="rgba(212,160,23,0.5)" stroke-width="1.2"/>
-  <circle cx="338" cy="103" r="6" fill="#d4a017"/>
-  <path d="M335.2,103 l1.8,1.9 l3.3,-3.7" stroke="#1a1206" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="352" y="106" fill="#e0d8d0" font-family="Roboto Mono" font-size="5">@app v1.2.0</text>
-  <rect x="320" y="124" width="160" height="28" rx="6" fill="rgba(102,221,170,0.16)" stroke="rgba(102,221,170,0.45)" stroke-width="1.2"/>
-  <path d="M334,138 h10 M334,142 h7" stroke="#66ddaa" stroke-width="1.4" stroke-linecap="round"/>
-  <text x="352" y="142" fill="#e0d8d0" font-family="Roboto Mono" font-size="5">signatures</text>
-  <text x="400" y="172" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4">signed app bundle + signatures</text>
+  <rect x="360" y="40" width="200" height="165" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
+  <text x="460" y="72" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="7" font-weight="600">Flower Hub</text>
+  <rect x="375" y="92" width="170" height="30" rx="6" fill="rgba(212,160,23,0.16)" stroke="rgba(212,160,23,0.5)" stroke-width="1.2"/>
+  <circle cx="393" cy="107" r="6" fill="#d4a017"/>
+  <path d="M390.2,107 l1.8,1.9 l3.3,-3.7" stroke="#1a1206" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="407" y="110" fill="#e0d8d0" font-family="Roboto Mono" font-size="5">@app v1.2.0</text>
+  <rect x="375" y="128" width="170" height="28" rx="6" fill="rgba(102,221,170,0.16)" stroke="rgba(102,221,170,0.45)" stroke-width="1.2"/>
+  <path d="M389,142 h10 M389,146 h7" stroke="#66ddaa" stroke-width="1.4" stroke-linecap="round"/>
+  <text x="407" y="146" fill="#e0d8d0" font-family="Roboto Mono" font-size="5">signatures</text>
+  <text x="460" y="182" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4">signed bundle + signatures</text>
 
-  <!-- Hospital SuperNode -->
-  <rect x="595" y="45" width="185" height="105" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
-  <rect x="679" y="60" width="16" height="16" rx="2" fill="none" stroke="#88ccff" stroke-width="1.5"/>
-  <line x1="687" y1="63" x2="687" y2="73" stroke="#88ccff" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="682" y1="68" x2="692" y2="68" stroke="#88ccff" stroke-width="1.4" stroke-linecap="round"/>
-  <text x="687" y="104" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="6.2" font-weight="600">Hospital SuperNode</text>
-  <text x="687" y="120" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.3">verifies signature</text>
-  <text x="687" y="133" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4.3">vs its trusted reviewers</text>
-  <text x="687" y="166" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="4.8">&#10003; trusted &#8594; accept</text>
-  <text x="687" y="180" text-anchor="middle" fill="#ff7878" font-family="Roboto Mono" font-size="4.8">&#10007; untrusted &#8594; reject</text>
+  <!-- Hospital node / SuperNode -->
+  <rect x="700" y="50" width="215" height="115" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
+  <rect x="799" y="62" width="16" height="16" rx="2" fill="none" stroke="#88ccff" stroke-width="1.5"/>
+  <line x1="807" y1="65" x2="807" y2="75" stroke="#88ccff" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="802" y1="70" x2="812" y2="70" stroke="#88ccff" stroke-width="1.4" stroke-linecap="round"/>
+  <text x="807" y="106" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="5.6" font-weight="600">Hospital SuperNode</text>
+  <text x="807" y="122" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4">DataSHIELD server</text>
+  <text x="807" y="134" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="4">verifies signature</text>
+  <text x="807" y="186" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="4.4">&#10003; trusted &#8594; accept</text>
+  <text x="807" y="199" text-anchor="middle" fill="#ff7878" font-family="Roboto Mono" font-size="4.4">&#10007; untrusted &#8594; reject</text>
 
   <!-- Analyst -->
-  <rect x="300" y="255" width="200" height="85" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
-  <circle cx="400" cy="272" r="5" fill="none" stroke="#88ccff" stroke-width="1.5"/>
-  <path d="M391,286 a9,9 0 0 1 18,0" fill="none" stroke="#88ccff" stroke-width="1.5"/>
-  <text x="400" y="312" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="6.5" font-weight="600">Analyst</text>
-  <text x="400" y="328" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4.4">requests an app by name</text>
+  <rect x="355" y="300" width="210" height="90" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.22)" stroke-width="1.5"/>
+  <circle cx="460" cy="320" r="5" fill="none" stroke="#88ccff" stroke-width="1.5"/>
+  <path d="M451,334 a9,9 0 0 1 18,0" fill="none" stroke="#88ccff" stroke-width="1.5"/>
+  <text x="460" y="358" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="6" font-weight="600">Analyst</text>
+  <text x="460" y="374" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4">picks the app to run</text>
 
-  <!-- reviewer -> hub -->
-  <path d="M207,95 L298,95" fill="none" stroke="#66ddaa" stroke-width="2.5" stroke-dasharray="8 6">
+  <!-- reviewer -> hub (signs) -->
+  <path d="M235,108 L358,108" fill="none" stroke="#66ddaa" stroke-width="2.5" stroke-dasharray="8 6">
     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="0.8s" repeatCount="indefinite"/>
   </path>
-  <text x="252" y="88" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="4">reviews &amp; signs</text>
+  <text x="296" y="101" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="3.8">reviews &amp; signs</text>
 
-  <!-- hub -> supernode -->
-  <path d="M502,95 L593,95" fill="none" stroke="#88ccff" stroke-width="2.5" stroke-dasharray="8 6">
+  <!-- hub -> supernode (delivers signed app) -->
+  <path d="M562,108 L698,108" fill="none" stroke="#88ccff" stroke-width="2.5" stroke-dasharray="8 6">
     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="0.8s" repeatCount="indefinite"/>
   </path>
-  <text x="547" y="88" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="4">pull signed app</text>
+  <text x="630" y="101" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="3.8">signed app + sigs</text>
 
-  <!-- analyst -> hub -->
-  <path d="M400,253 L400,187" fill="none" stroke="#ffaacc" stroke-width="2.5" stroke-dasharray="8 6">
-    <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="0.8s" repeatCount="indefinite"/>
+  <!-- analyst -> hub (browse / choose) -->
+  <path d="M460,298 L460,209" fill="none" stroke="#FFD000" stroke-width="2.2" stroke-dasharray="7 6">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="0.8s" repeatCount="indefinite"/>
   </path>
-  <text x="409" y="222" text-anchor="start" fill="#ffaacc" font-family="Roboto Mono" font-size="4">request</text>
+  <text x="468" y="256" text-anchor="start" fill="#FFD000" font-family="Roboto Mono" font-size="3.8">browse / choose</text>
+
+  <!-- analyst -> supernode (request to run) -->
+  <path d="M555,300 L704,168" fill="none" stroke="#ffaacc" stroke-width="2.2" stroke-dasharray="7 6">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  <text x="560" y="292" text-anchor="start" fill="#ffaacc" font-family="Roboto Mono" font-size="3.8">request to run</text>
 
 </svg>
 </div>
