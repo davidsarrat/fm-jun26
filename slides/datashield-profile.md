@@ -25,7 +25,7 @@
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#ff6b6b" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
       <div class="pc-label" style="color:#ff6b6b;">Built for simple statistical studies</div>
-      <div class="pc-sub">Designed for classical epidemiology: means, contingency tables, GLMs. The engine runs one-shot aggregate queries, not heavy or iterative computation.</div>
+      <div class="pc-sub">The engine was originally designed for classical epidemiology: means, contingency tables, GLMs. It runs one-shot aggregate queries, not heavy or iterative computation.</div>
     </div>
     <div v-click="4" class="pc-card pc-red">
       <div class="pc-icon">
