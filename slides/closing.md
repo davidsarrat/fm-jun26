@@ -3,9 +3,9 @@
     Thank you for your attention!
   </div>
   <div style="font-family: 'Roboto Mono', monospace; font-size: 0.9em; margin-top: 0.3em; display: flex; flex-direction: column; align-items: center; gap: 0.1em;">
-    <span style="font-size: 0.72em; color: #555555; letter-spacing: 0.04em;">Repository links</span>
-    <a href="https://github.com/isglobal-brge/dsFlower" style="color: #1a3fff !important; text-decoration: none !important;">github.com/isglobal-brge/dsFlower</a>
-    <a href="https://github.com/isglobal-brge/dsFlowerClient" style="color: #1a3fff !important; text-decoration: none !important;">github.com/isglobal-brge/dsFlowerClient</a>
+    <span style="font-size: 0.72em; color: #333333; letter-spacing: 0.04em;">Repository links</span>
+    <a href="https://github.com/isglobal-brge/dsFlower" style="color: #1a3fff !important; font-weight: 600; text-decoration: none !important;">github.com/isglobal-brge/dsFlower</a>
+    <a href="https://github.com/isglobal-brge/dsFlowerClient" style="color: #1a3fff !important; font-weight: 600; text-decoration: none !important;">github.com/isglobal-brge/dsFlowerClient</a>
   </div>
   <div class="flex items-center justify-center gap-6" style="margin-top: 2em;">
     <div class="flex flex-col items-center gap-1">
