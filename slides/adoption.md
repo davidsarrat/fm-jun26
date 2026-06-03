@@ -56,7 +56,7 @@ const COORD: [number, number][] = [
 ]
 
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
-const ASK = '#7de8f6', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const ASK = '#3aa6ff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const PRE_MS = 500
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
@@ -239,7 +239,7 @@ function frame(now: number) {
   for (const tx of txns) {
     const e = now - tx.t0
     if (e >= PRE_MS + TOTAL + ACK_MS) { done.push(tx); continue }
-    setActive(tx.emitter, e < PRE_MS + TOTAL ? ASK : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
+    setActive(tx.emitter, e < PRE_MS + TOTAL ? ASK : GREEN, 0.42 + 0.08 * Math.sin(now * 0.012))
     const q = e - PRE_MS
     if (q < 0) {
       // pre-phase: only the asking node is lit; targets stay idle, no links yet
@@ -247,14 +247,14 @@ function frame(now: number) {
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = D })
     } else if (q < QUERY_MS) {
       const p = q / QUERY_MS
-      tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.targets.forEach(t => setActive(t, YELLOW, 0.34 + 0.1 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = YELLOW; l.offset = D - p * (l.len + 2 * D) } })
     } else if (q < QUERY_MS + PAUSE_MS) {
-      tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.targets.forEach(t => setActive(t, YELLOW, 0.34 + 0.1 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = -(l.len + D) })
     } else if (q < TOTAL) {
       const p = (q - QUERY_MS - PAUSE_MS) / RESULT_MS
-      tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.targets.forEach(t => setActive(t, GREEN, 0.34 + 0.1 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
     } else {
       tx.targets.forEach(t => setIdle(t))
