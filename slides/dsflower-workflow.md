@@ -3,24 +3,31 @@
 <div style="margin-top: 0.5em;">
 <svg viewBox="0 0 810 340" style="width: 100%; max-height: 390px;">
 
+  <defs>
+    <linearGradient id="privGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9D4EDD"/>
+      <stop offset="100%" stop-color="#FF4D9D"/>
+    </linearGradient>
+  </defs>
+
   <!-- SuperNode nodes (top row) -->
   <g transform="translate(120,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.20)" stroke-width="1"/>
-    <text y="-4" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital A</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(350,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.20)" stroke-width="1"/>
-    <text y="-4" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital B</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
 
   <g transform="translate(580,65)">
-    <rect x="-80" y="-40" width="160" height="80" rx="14" fill="rgba(136,204,255,0.08)" stroke="rgba(136,204,255,0.20)" stroke-width="1"/>
-    <text y="-4" text-anchor="middle" fill="#88ccff" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
+    <rect x="-80" y="-40" width="160" height="80" rx="14" :fill="$clicks>=1 ? 'rgba(157,78,221,0.16)' : 'rgba(136,204,255,0.08)'" :stroke="$clicks>=1 ? 'url(#privGrad)' : 'rgba(136,204,255,0.20)'" :stroke-width="$clicks>=1 ? 2 : 1"/>
+    <text y="-4" text-anchor="middle" :fill="$clicks>=1 ? 'url(#privGrad)' : '#88ccff'" font-family="Roboto Mono" font-size="5" font-weight="500">SuperNode</text>
     <text y="14" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="4" font-weight="500">Hospital C</text>
     <text y="28" text-anchor="middle" fill="#ffb366" font-family="Roboto Mono" font-size="2.8">own data</text>
   </g>
@@ -28,7 +35,7 @@
   <!-- Server-side annotation -->
   <text x="735" y="52" fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle">Local Training</text>
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
-  <text x="735" y="76" fill="#b0b8c0" font-family="Roboto Mono" font-size="3" text-anchor="middle" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Privacy Controls</text>
+  <text x="735" y="76" :fill="$clicks>=1 ? 'url(#privGrad)' : '#b0b8c0'" font-family="Roboto Mono" :font-size="$clicks>=1 ? 3.5 : 3" text-anchor="middle" :font-weight="$clicks>=1 ? 700 : 400" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Privacy Controls</text>
 
   <!-- SuperLink node (bottom center) -->
   <g transform="translate(350,280)">
@@ -75,7 +82,44 @@
   <text fill="#ffaacc" font-family="Roboto Mono" font-size="3.5" text-anchor="middle"><textPath href="#flQR" startOffset="50%">global model</textPath></text>
   <text fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle"><textPath href="#flRR" startOffset="50%">weight updates</textPath></text>
 
+  <!-- Privacy origin info box (appears on click, under Privacy Controls) -->
+  <foreignObject x="662" y="108" width="144" height="104" v-click="1">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="priv-info">
+      <div class="priv-info-title">Protection starts at the node</div>
+      <div class="priv-info-body">Privacy controls act on every weight update before it ever reaches the analyst's SuperLink.</div>
+    </div>
+  </foreignObject>
+
 </svg>
 </div>
 
 Model weights flow via **gRPC/TLS**. Raw data stays on each hospital's server. Only weight deltas travel.
+
+<style>
+.priv-info {
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 7px;
+  padding: 6px 8px;
+  background: linear-gradient(135deg, rgba(157,78,221,0.20), rgba(255,77,157,0.12));
+  border: 1px solid rgba(255,120,200,0.5);
+}
+.priv-info-title {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 8px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #C77DFF, #FF4D9D);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.priv-info-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 6.5px;
+  line-height: 1.4;
+  color: #ece3f5;
+}
+</style>
