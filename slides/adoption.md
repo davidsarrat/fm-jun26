@@ -56,8 +56,9 @@ const COORD: [number, number][] = [
 ]
 
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
-const ASK = '#b026ff', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const ASK = '#3aa6ff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
+const PRE_MS = 500
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
 const ACK_MS = 500
@@ -225,7 +226,7 @@ function scheduleSpawns(now: number) {
     const ra = regionActive(r)
     const due = ra === 0 || (ra < REGION_CAP.get(r)! && now >= (regionNextSpawn.get(r) ?? 0))
     if (due && spawnInRegion(r, now)) {
-      regionNextSpawn.set(r, now + SPAWN_MIN_MS + ACK_MS + Math.random() * SPAWN_RAND_MS)
+      regionNextSpawn.set(r, now + SPAWN_MIN_MS + PRE_MS + ACK_MS + Math.random() * SPAWN_RAND_MS)
     }
   }
   if (txns.length < MAX_CONCURRENT && !txns.some(t => t.bridge) && now - lastBridge > BRIDGE_FORCE_MS) {
@@ -237,17 +238,22 @@ function frame(now: number) {
   const done: Txn[] = []
   for (const tx of txns) {
     const e = now - tx.t0
-    if (e >= TOTAL + ACK_MS) { done.push(tx); continue }
-    setActive(tx.emitter, e < TOTAL ? ASK : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
-    if (e < QUERY_MS) {
-      const p = e / QUERY_MS
+    if (e >= PRE_MS + TOTAL + ACK_MS) { done.push(tx); continue }
+    setActive(tx.emitter, e < PRE_MS + TOTAL ? ASK : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
+    const q = e - PRE_MS
+    if (q < 0) {
+      // pre-phase: only the asking node is lit; targets stay idle, no links yet
+      tx.targets.forEach(t => setIdle(t))
+      tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = D })
+    } else if (q < QUERY_MS) {
+      const p = q / QUERY_MS
       tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = YELLOW; l.offset = D - p * (l.len + 2 * D) } })
-    } else if (e < QUERY_MS + PAUSE_MS) {
+    } else if (q < QUERY_MS + PAUSE_MS) {
       tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = -(l.len + D) })
-    } else if (e < TOTAL) {
-      const p = (e - QUERY_MS - PAUSE_MS) / RESULT_MS
+    } else if (q < TOTAL) {
+      const p = (q - QUERY_MS - PAUSE_MS) / RESULT_MS
       tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
     } else {
