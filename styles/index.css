@@ -242,17 +242,17 @@ td {
 
 /* ————————————————————————————————
    Blur transition (Recap ↔ dsFlower workflow)
-   blur-out 1s, then blur-in 1s — symmetric both ways
+   blur-out 0.6s, then blur-in 0.6s — symmetric both ways
    ———————————————————————————————— */
 
 /* Page-level: timing only (so Vue waits) + keep leaving slide on top.
    The dark overlay (.slidev-layout::after) and its backdrop-filter are never touched. */
 .blur-enter-active,
 .blur-leave-active {
-  transition: filter 1s ease;
+  transition: filter 0.6s ease;
 }
 .blur-enter-active {
-  transition-delay: 1s;
+  transition-delay: 0.6s;
 }
 .blur-leave-active {
   z-index: 20;
@@ -260,10 +260,10 @@ td {
 /* Visual: blur only the slide content, never the dark layer */
 .blur-enter-active .slidev-layout > *,
 .blur-leave-active .slidev-layout > * {
-  transition: filter 1s ease;
+  transition: filter 0.6s ease;
 }
 .blur-enter-active .slidev-layout > * {
-  transition-delay: 1s;
+  transition-delay: 0.6s;
 }
 .blur-enter-from .slidev-layout > *,
 .blur-leave-to .slidev-layout > * {
@@ -275,17 +275,20 @@ td {
 }
 
 /* Both slides are stacked during the blur, so their two dark overlays would
-   compound and over-darken the lava. Keep only the leaving slide's overlay
-   (it sits on top, z-index 20) and snap the entering one on just as the
-   leaving slide unmounts (~1s), so a single overlay is visible throughout. */
-.blur-enter-from .slidev-layout::after {
-  opacity: 0;
+   compound and over-darken the lava. Cross-fade them: as the leaving overlay
+   fades out the entering one fades in, so their combined darkness never
+   exceeds a single overlay (never darker) and never clears (no lava flash). */
+.blur-leave-active .slidev-layout::after,
+.blur-enter-active .slidev-layout::after {
+  transition: opacity 0.6s linear;
 }
+.blur-leave-from .slidev-layout::after,
 .blur-enter-to .slidev-layout::after {
   opacity: 1;
 }
-.blur-enter-active .slidev-layout::after {
-  transition: opacity 0s linear 0.85s;
+.blur-leave-to .slidev-layout::after,
+.blur-enter-from .slidev-layout::after {
+  opacity: 0;
 }
 
 /* ————————————————————————————————
