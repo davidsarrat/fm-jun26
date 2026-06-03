@@ -109,7 +109,15 @@ src: ./slides/imaging.md
 ---
 
 ---
-src: ./slides/discussion.md
+src: ./slides/app-pool-dilemma.md
+---
+
+---
+src: ./slides/app-pool-hub.md
+---
+
+---
+src: ./slides/flower-hub-credit.md
 ---
 
 ---
