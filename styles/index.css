@@ -258,6 +258,15 @@ blockquote {
 
 ul li::marker { color: #FF8801; }
 
+.glow-pulse {
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px rgba(102, 221, 170, 0.45), 0 0 18px rgba(102, 221, 170, 0.22); }
+  50% { text-shadow: 0 0 16px rgba(102, 221, 170, 0.85), 0 0 34px rgba(102, 221, 170, 0.5); }
+}
+
 /* ————————————————————————————————
    Cover & closing — raw lava, no overlay
    ———————————————————————————————— */

@@ -18,6 +18,6 @@ Today dsFlower ships a fixed set of reviewed templates. The open question is how
 
 </div>
 
-<div class="mt-8 text-center" v-click style="color: #66ddaa; font-size: 1.15em; font-weight: 600;">
+<div class="mt-8 text-center glow-pulse" v-click style="color: #66ddaa; font-size: 1.15em; font-weight: 600;">
 There is a third way.
 </div>
