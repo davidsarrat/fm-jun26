@@ -97,7 +97,7 @@
   <foreignObject x="620" y="130" width="190" height="112" v-click="1">
     <div xmlns="http://www.w3.org/1999/xhtml" class="priv-info">
       <div class="priv-info-title">Protection starts at the node</div>
-      <div class="priv-info-body">Privacy controls act on every weight update before it ever reaches the analyst's SuperLink.</div>
+      <div class="priv-info-body">Privacy controls act on every weight update <strong>before</strong> it ever reaches the analyst's SuperLink.</div>
     </div>
   </foreignObject>
 
@@ -132,6 +132,10 @@ Data never leaves the hospital. Only **weight deltas** travel back.
   font-size: 10.5px;
   line-height: 1.5;
   color: #d8d0c8;
+}
+.priv-info-body strong {
+  color: #FFD000;
+  font-weight: 700;
 }
 .disc-on {
   border-bottom: none !important;
