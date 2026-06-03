@@ -15,7 +15,7 @@ class: match-slide
     </div>
   </div>
 
-  <div class="match-sub" :class="{ show: revealed }">DataSHIELD and Flower combine federated learning capabilities with privacy-preserving mechanisms</div>
+  <div class="match-sub" :class="{ show: revealed }">DataSHIELD and Flower combine federated learning capabilities with disclosure control</div>
 
 </div>
 
