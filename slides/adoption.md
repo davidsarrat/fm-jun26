@@ -1,7 +1,7 @@
 ## DataSHIELD adoption
 
 <div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center; overflow:hidden;">
-<svg :viewBox="viewBoxRef" style="width:100%; max-height:540px;">
+<svg :viewBox="viewBox" style="width:100%; max-height:540px;">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#88ccff" stop-opacity="0.15"/>
@@ -99,7 +99,7 @@ const REGION_IDS = [...regCap.keys()]
 const REGION_CAP = new Map<number, number>()
 REGION_IDS.forEach(r => REGION_CAP.set(r, Math.min(3, Math.ceil(REGION_SIZE.get(r)! / 40))))
 
-// smooth GPU zoom to the largest (European) cluster on click
+// zoom target: bounding box of the largest (European) cluster
 const AR = 1000 / 423.4
 const EU_REGION = [...REGION_SIZE.entries()].reduce((a, b) => b[1] > a[1] ? b : a)[0]
 const EU = (() => {
@@ -112,41 +112,28 @@ const EU = (() => {
   return { x: minx, y: miny, w, h }
 })()
 
-// crisp zoom: tween the viewBox itself (vector stays sharp at every frame, no pop)
-type Box = { x: number; y: number; w: number; h: number }
+// crisp zoom: tween the viewBox (vector stays sharp every frame)
 const { clicks } = useNav()
-const FULL: Box = { x: 0, y: 0, w: 1000, h: 423.4 }
-const viewBoxRef = ref(`${FULL.x} ${FULL.y} ${FULL.w} ${FULL.h}`)
-const ZOOM_DUR = 850
-const easeIO = (p: number) => p < 0.5 ? 4 * p * p * p : 1 - ((-2 * p + 2) ** 3) / 2
-let curBox: Box = { ...FULL }
-let zoomFrom: Box = { ...FULL }
-let zoomTarget: Box = { ...FULL }
-let zoomT0 = 0
-let zooming = false
-function applyClicks(animate: boolean) {
-  const t = (clicks.value ?? 0) >= 1 ? EU : FULL
-  if (animate) {
-    if (t.x === zoomTarget.x && t.w === zoomTarget.w && !zooming) return
-    zoomFrom = { ...curBox }; zoomTarget = t; zoomT0 = performance.now(); zooming = true
-  } else {
-    curBox = { ...t }; zoomFrom = { ...t }; zoomTarget = t; zooming = false
-    viewBoxRef.value = `${t.x} ${t.y} ${t.w} ${t.h}`
+const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
+const vb = ref({ ...FULL })
+const viewBox = computed(() => `${vb.value.x} ${vb.value.y} ${vb.value.w} ${vb.value.h}`)
+let zoomRaf = 0
+function tweenTo(to: { x: number; y: number; w: number; h: number }) {
+  cancelAnimationFrame(zoomRaf)
+  const from = { ...vb.value }
+  const t0 = performance.now(), dur = 900
+  const ease = (p: number) => p < 0.5 ? 2 * p * p : 1 - ((-2 * p + 2) ** 2) / 2
+  function step(now: number) {
+    const p = Math.min(1, (now - t0) / dur), e = ease(p)
+    vb.value = {
+      x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e,
+      w: from.w + (to.w - from.w) * e, h: from.h + (to.h - from.h) * e,
+    }
+    if (p < 1) zoomRaf = requestAnimationFrame(step)
   }
+  zoomRaf = requestAnimationFrame(step)
 }
-watch(clicks, () => applyClicks(true))
-function tickZoom(now: number) {
-  if (!zooming) return
-  const p = Math.min(1, (now - zoomT0) / ZOOM_DUR), e = easeIO(p)
-  curBox = {
-    x: zoomFrom.x + (zoomTarget.x - zoomFrom.x) * e,
-    y: zoomFrom.y + (zoomTarget.y - zoomFrom.y) * e,
-    w: zoomFrom.w + (zoomTarget.w - zoomFrom.w) * e,
-    h: zoomFrom.h + (zoomTarget.h - zoomFrom.h) * e,
-  }
-  viewBoxRef.value = `${curBox.x} ${curBox.y} ${curBox.w} ${curBox.h}`
-  if (p >= 1) zooming = false
-}
+watch(clicks, c => tweenTo((c ?? 0) >= 1 ? EU : FULL))
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -279,13 +266,12 @@ function frame(now: number) {
   }
   if (done.length) txns = txns.filter(tx => !done.includes(tx))
   scheduleSpawns(now)
-  tickZoom(now)
   for (const n of nodes.value) {
     if (!n.active) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
   }
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { applyClicks(false); raf = requestAnimationFrame(frame) })
-onUnmounted(() => cancelAnimationFrame(raf))
+onMounted(() => { vb.value = (clicks.value ?? 0) >= 1 ? { ...EU } : { ...FULL }; raf = requestAnimationFrame(frame) })
+onUnmounted(() => { cancelAnimationFrame(raf); cancelAnimationFrame(zoomRaf) })
 </script>
