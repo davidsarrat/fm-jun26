@@ -4,11 +4,7 @@
 <div>
 
 ```r
-# DataSHIELD login loads each site's table into D
-conns  <- datashield.login(
-  logins, assign = TRUE, symbol = "D"
-)
-
+# assuming your data is loaded under symbol "D":
 flower <- ds.flower.connect(conns, symbol = "D")
 
 recipe <- ds.flower.recipe(
