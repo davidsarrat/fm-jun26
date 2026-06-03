@@ -1,6 +1,6 @@
 ## The DataSHIELD package ecosystem
 
-<div class="text-center" style="font-size:0.86em; color:#c8b8a8; margin-top:1.4em;">Each is an open-source server + client pair, <span style="color:#66ddaa;">validated and audited by the DataSHIELD community</span>.</div>
+<div class="text-center" style="font-size:0.86em; color:#c8b8a8; margin-top:1.4em;">Some of the available packages, each an open-source server + client pair <span style="color:#66ddaa;">validated and audited by the DataSHIELD community</span>.</div>
 
 <div class="grid grid-cols-3 gap-4" style="margin-top:1em;">
   <div v-click="1" style="background:rgba(136,204,255,0.06); border:1px solid rgba(136,204,255,0.24); border-radius:10px; padding:1em 0.7em; text-align:center;">
@@ -41,7 +41,7 @@
       <line x1="11" y1="24" x2="37" y2="24" stroke="#66ddaa" stroke-width="1" stroke-dasharray="2 2"/>
     </svg>
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.92em; font-weight:600; margin-top:0.35em;">dsImaging</div>
-    <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.25em; line-height:1.35;">Segmentation and radiomics on clinical images</div>
+    <div style="font-size:0.64em; color:#b0b8c0; margin-top:0.25em; line-height:1.35;">Operability with images and imaging tools like segmentation and radiomics</div>
   </div>
   <div v-click="5" style="background:rgba(255,140,66,0.06); border:1px solid rgba(255,140,66,0.26); border-radius:10px; padding:1em 0.7em; text-align:center;">
     <svg viewBox="0 0 48 48" style="width:42px; height:42px; display:block; margin:0 auto;">
