@@ -37,10 +37,6 @@
   </div>
 </div>
 
-<div v-click="5" class="text-center" style="margin-top:1.3em; font-size:0.9em; color:#c8b8a8;">
-The strengths took a decade of institutional trust to earn. The gaps are engineering, and that is exactly what a federated-learning framework provides.
-</div>
-
 <style scoped>
 .pc-card {
   border: 1px solid;
