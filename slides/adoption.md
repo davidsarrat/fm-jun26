@@ -58,6 +58,7 @@ const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
+const ACK_MS = 200
 const SPAWN_MIN_MS = 650, SPAWN_RAND_MS = 900
 const MAX_CONCURRENT = 5
 const MIN_D = 12, LOCAL_MAXD = 50
@@ -176,7 +177,8 @@ function frame(now: number) {
   const done: Txn[] = []
   for (const tx of txns) {
     const e = now - tx.t0
-    setActive(tx.emitter, BLUE, 0.24 + 0.05 * Math.sin(now * 0.012))
+    if (e >= TOTAL + ACK_MS) { done.push(tx); continue }
+    setActive(tx.emitter, e < TOTAL ? BLUE : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
     if (e < QUERY_MS) {
       const p = e / QUERY_MS
       tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
@@ -189,7 +191,8 @@ function frame(now: number) {
       tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
     } else {
-      done.push(tx)
+      tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = D })
     }
   }
   for (const tx of done) {
