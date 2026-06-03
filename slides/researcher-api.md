@@ -4,7 +4,10 @@
 <div>
 
 ```r
-flower <- ds.flower.connect(conns)
+# DataSHIELD login loads each site's table into D
+conns  <- datashield.login(logins, assign = TRUE, symbol = "D")
+
+flower <- ds.flower.connect(conns, symbol = "D")
 
 recipe <- ds.flower.recipe(
   model         = ds.flower.model.sklearn_logreg(),
@@ -19,7 +22,7 @@ result <- ds.flower.run(flower, recipe)
 </div>
 <div>
 
-A recipe is just **four plain-language choices**:
+The data is the table DataSHIELD already loaded into `D`. The recipe is just **four plain-language choices**:
 
 - `model`: **what** to train
 - `strategy`: **how** to combine sites
@@ -28,7 +31,7 @@ A recipe is just **four plain-language choices**:
 
 <div class="mt-3" v-click>
 
-Connect, compose, run. **Privacy is enforced by the server**, so it holds no matter what the analyst writes.
+Load, connect, compose, run. **Privacy is enforced by the server**, so it holds no matter what the analyst writes.
 
 </div>
 
