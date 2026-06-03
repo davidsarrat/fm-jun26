@@ -58,6 +58,7 @@ const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
+const SPAWN_MIN_MS = 650, SPAWN_RAND_MS = 900
 const MAX_CONCURRENT = 5
 const MIN_D = 12, LOCAL_MAXD = 50
 const BRIDGE_FORCE_MS = 3000
@@ -170,7 +171,7 @@ function trySpawn(now: number) {
 function frame(now: number) {
   if (now >= nextSpawn) {
     trySpawn(now)
-    nextSpawn = now + 300 + Math.random() * 700
+    nextSpawn = now + SPAWN_MIN_MS + Math.random() * SPAWN_RAND_MS
   }
   const done: Txn[] = []
   for (const tx of txns) {
