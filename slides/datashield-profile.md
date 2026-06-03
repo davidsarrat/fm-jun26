@@ -1,10 +1,8 @@
 ## DataSHIELD on its own
 
 <div class="grid grid-cols-2 gap-8" style="margin-top:1.4em;">
-
   <div class="flex flex-col gap-4">
     <div style="font-family:'Roboto Mono'; color:#66ddaa; font-size:0.78em; font-weight:700; letter-spacing:0.12em; text-align:center;">STRENGTHS</div>
-
     <div v-click="1" class="pc-card pc-green">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#66ddaa" stroke-width="1.6"/><path d="M7 12.5l3.2 3.2L17 8.8" fill="none" stroke="#66ddaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -12,7 +10,6 @@
       <div class="pc-label" style="color:#66ddaa;">Privacy-preservation expertise</div>
       <div class="pc-sub">A decade of disclosure control: minimum cell counts, approved functions, only non-disclosive summaries leave. Raw data never leaves the site.</div>
     </div>
-
     <div v-click="2" class="pc-card pc-green">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#66ddaa" stroke-width="1.6"/><path d="M7 12.5l3.2 3.2L17 8.8" fill="none" stroke="#66ddaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -21,10 +18,8 @@
       <div class="pc-sub">Years embedded in biomedical institutions: ethics-board, legal and data-custodian approval already secured across hospital networks and consortia.</div>
     </div>
   </div>
-
   <div class="flex flex-col gap-4">
     <div style="font-family:'Roboto Mono'; color:#ff6b6b; font-size:0.78em; font-weight:700; letter-spacing:0.12em; text-align:center;">GAPS</div>
-
     <div v-click="3" class="pc-card pc-red">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#ff6b6b" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
@@ -32,7 +27,6 @@
       <div class="pc-label" style="color:#ff6b6b;">Built for simple statistical studies</div>
       <div class="pc-sub">Designed for classical epidemiology: means, contingency tables, GLMs. The engine runs one-shot aggregate queries, not heavy or iterative computation.</div>
     </div>
-
     <div v-click="4" class="pc-card pc-red">
       <div class="pc-icon">
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#ff6b6b" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/></svg>
@@ -41,7 +35,6 @@
       <div class="pc-sub">No engine to train a model over many rounds: no parameter exchange, no aggregation strategies, no neural networks, gradient-boosted trees or imaging.</div>
     </div>
   </div>
-
 </div>
 
 <div v-click="5" class="text-center" style="margin-top:1.3em; font-size:0.9em; color:#c8b8a8;">
