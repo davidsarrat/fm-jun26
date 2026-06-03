@@ -8,7 +8,7 @@
         <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#66ddaa" stroke-width="1.6"/><path d="M7 12.5l3.2 3.2L17 8.8" fill="none" stroke="#66ddaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="pc-label" style="color:#66ddaa;">Privacy-preservation expertise</div>
-      <div class="pc-sub">A decade of disclosure control: minimum cell counts, approved functions, only non-disclosive summaries leave. Raw data never leaves the site.</div>
+      <div class="pc-sub">Years of experience and a deep focus on patient privacy, keeping every analysis non-disclosive so raw data never leaves the site.</div>
     </div>
     <div v-click="2" class="pc-card pc-green">
       <div class="pc-icon">
