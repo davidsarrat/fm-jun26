@@ -241,6 +241,29 @@ td {
 .exec-lines:not(.slidev-vclick-hidden) > div:nth-child(18) { animation-delay: 4.5s; }
 
 /* ————————————————————————————————
+   Blur transition (Recap ↔ dsFlower workflow)
+   blur-out 1s, then blur-in 1s — symmetric both ways
+   ———————————————————————————————— */
+
+.blur-enter-active,
+.blur-leave-active {
+  transition: opacity 1s ease, filter 1s ease;
+}
+.blur-enter-active {
+  transition-delay: 1s;
+}
+.blur-enter-from,
+.blur-leave-to {
+  opacity: 0;
+  filter: blur(20px);
+}
+.blur-enter-to,
+.blur-leave-from {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ————————————————————————————————
    Miscellaneous
    ———————————————————————————————— */
 

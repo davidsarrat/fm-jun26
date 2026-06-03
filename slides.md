@@ -68,6 +68,7 @@ src: ./slides/match.md
 
 ---
 src: ./slides/datashield-workflow-recap.md
+transition: blur
 ---
 
 ---
