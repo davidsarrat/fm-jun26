@@ -50,7 +50,7 @@
     </g>
   </g>
   <g :opacity="popNodes[3].o">
-    <line x1="604" y1="216" x2="594" y2="211" stroke="#FFD000" stroke-width="0.7" stroke-linecap="round"/>
+    <line x1="604" y1="216" x2="597" y2="211" stroke="#FFD000" stroke-width="0.7" stroke-linecap="round"/>
     <text x="588" y="209.6" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="1.05" font-weight="600">next week, btw! :)</text>
   </g>
 </svg>
