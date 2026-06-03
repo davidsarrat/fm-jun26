@@ -59,7 +59,9 @@ onMounted(() => {
 <!-- Experiment setup -->
 <div style="background: rgba(136,204,255,0.04); border: 1px solid rgba(136,204,255,0.12); border-radius: 10px; padding: 0.8em 1.2em; margin-bottom: 10px;">
 
-<div style="color: #88ccff; font-size: 1.2em; font-weight: 600; margin-bottom: 10px;">Federated Heart Disease Risk</div>
+<div style="color: #88ccff; font-size: 1.2em; font-weight: 600; margin-bottom: 6px;">Federated Heart Disease Risk</div>
+
+<div style="color: #c8c0b8; font-size: 0.92em; line-height: 1.5; margin-bottom: 12px;">Three cardiology cohorts, each holding its own patients, train one shared model to flag heart disease from 10 routine clinical measurements. The records never leave the hospital; only model updates travel.</div>
 
 <!-- Institutions grid -->
 <div style="display: flex; gap: 8px; margin-bottom: 12px;">
