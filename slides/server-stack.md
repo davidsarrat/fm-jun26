@@ -56,7 +56,7 @@
   <!-- ===== CLICK 4: Templates ===== -->
   <g v-click>
     <rect x="200" y="190" width="335" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-    <text x="367" y="208" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="2.8">18 Pre-approved Templates (Flower Apps)</text>
+    <text x="367" y="208" text-anchor="middle" fill="#e0d8d0" font-family="Roboto Mono" font-size="2.8">20 Pre-approved Templates (Flower Apps)</text>
     <text x="367" y="222" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5">Common biomedical research operations</text>
     <text x="367" y="235" text-anchor="middle" fill="#b0b8c0" font-family="Roboto Mono" font-size="2">LogReg · MLP · ResNet-18 · U-Net · LSTM · Cox PH · XGBoost ...</text>
   </g>
