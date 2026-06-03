@@ -1,7 +1,7 @@
 ## DataSHIELD adoption
 
 <div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center; overflow:hidden;">
-<svg :viewBox="viewBoxRef" :style="svgStyle">
+<svg :viewBox="viewBoxRef" style="width:100%; max-height:540px;">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#88ccff" stop-opacity="0.15"/>
@@ -57,7 +57,7 @@ const COORD: [number, number][] = [
 ]
 
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
-const ASK = '#b388ff', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const ASK = '#ff8c42', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
@@ -112,47 +112,41 @@ const EU = (() => {
   return { x: minx, y: miny, w, h }
 })()
 
-// hybrid zoom: animate with GPU transform (smooth), settle on viewBox (crisp)
+// crisp zoom: tween the viewBox itself (vector stays sharp at every frame, no pop)
+type Box = { x: number; y: number; w: number; h: number }
 const { clicks } = useNav()
-const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
-const IDENTITY = 'translate(0%, 0%) scale(1)'
-const TRANSITION = 'transform 950ms cubic-bezier(0.22, 1, 0.36, 1)'
-let curBox = FULL
-let zoomTok = 0
-const viewBoxRef = ref('0 0 1000 423.4')
-const transformRef = ref(IDENTITY)
-const transitionRef = ref(TRANSITION)
-const svgStyle = computed(() => ({
-  width: '100%',
-  maxHeight: '540px',
-  transformOrigin: '0 0',
-  transition: transitionRef.value,
-  transform: transformRef.value,
-  willChange: 'transform',
-}))
-function zoomTo(TB: { x: number; y: number; w: number; h: number }) {
-  if (TB === curBox) return
-  const VB = curBox
-  const k = VB.w / TB.w
-  const tx = -100 * (TB.x - VB.x) / TB.w
-  const ty = -100 * (TB.y - VB.y) / TB.h
-  const tok = ++zoomTok
-  transitionRef.value = TRANSITION
-  transformRef.value = IDENTITY
-  requestAnimationFrame(() => {
-    if (tok !== zoomTok) return
-    transformRef.value = `translate(${tx}%, ${ty}%) scale(${k})`
-  })
-  setTimeout(() => {
-    if (tok !== zoomTok) return
-    transitionRef.value = 'none'
-    transformRef.value = IDENTITY
-    viewBoxRef.value = `${TB.x} ${TB.y} ${TB.w} ${TB.h}`
-    curBox = TB
-    requestAnimationFrame(() => { if (tok === zoomTok) transitionRef.value = TRANSITION })
-  }, 1000)
+const FULL: Box = { x: 0, y: 0, w: 1000, h: 423.4 }
+const viewBoxRef = ref(`${FULL.x} ${FULL.y} ${FULL.w} ${FULL.h}`)
+const ZOOM_DUR = 850
+const easeIO = (p: number) => p < 0.5 ? 4 * p * p * p : 1 - ((-2 * p + 2) ** 3) / 2
+let curBox: Box = { ...FULL }
+let zoomFrom: Box = { ...FULL }
+let zoomTarget: Box = { ...FULL }
+let zoomT0 = 0
+let zooming = false
+function applyClicks(animate: boolean) {
+  const t = (clicks.value ?? 0) >= 1 ? EU : FULL
+  if (animate) {
+    if (t.x === zoomTarget.x && t.w === zoomTarget.w && !zooming) return
+    zoomFrom = { ...curBox }; zoomTarget = t; zoomT0 = performance.now(); zooming = true
+  } else {
+    curBox = { ...t }; zoomFrom = { ...t }; zoomTarget = t; zooming = false
+    viewBoxRef.value = `${t.x} ${t.y} ${t.w} ${t.h}`
+  }
 }
-watch(clicks, c => zoomTo((c ?? 0) >= 1 ? EU : FULL))
+watch(clicks, () => applyClicks(true))
+function tickZoom(now: number) {
+  if (!zooming) return
+  const p = Math.min(1, (now - zoomT0) / ZOOM_DUR), e = easeIO(p)
+  curBox = {
+    x: zoomFrom.x + (zoomTarget.x - zoomFrom.x) * e,
+    y: zoomFrom.y + (zoomTarget.y - zoomFrom.y) * e,
+    w: zoomFrom.w + (zoomTarget.w - zoomFrom.w) * e,
+    h: zoomFrom.h + (zoomTarget.h - zoomFrom.h) * e,
+  }
+  viewBoxRef.value = `${curBox.x} ${curBox.y} ${curBox.w} ${curBox.h}`
+  if (p >= 1) zooming = false
+}
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -285,12 +279,13 @@ function frame(now: number) {
   }
   if (done.length) txns = txns.filter(tx => !done.includes(tx))
   scheduleSpawns(now)
+  tickZoom(now)
   for (const n of nodes.value) {
     if (!n.active) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
   }
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { raf = requestAnimationFrame(frame) })
+onMounted(() => { applyClicks(false); raf = requestAnimationFrame(frame) })
 onUnmounted(() => cancelAnimationFrame(raf))
 </script>
