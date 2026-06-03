@@ -60,10 +60,9 @@ const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
 const ACK_MS = 500
 const SPAWN_MIN_MS = 650, SPAWN_RAND_MS = 900
-const MAX_CONCURRENT = 5
+const MAX_CONCURRENT = 6
 const MIN_D = 12, LOCAL_MAXD = 50, MIN_SEP = 40
 const BRIDGE_FORCE_MS = 3000
-const BRIDGE_CHANCE = 0.3
 
 type NodeS = { id: number; x: number; y: number; color: string; dot: string; glow: number; active: boolean }
 type Link = { id: number; x1: number; y1: number; x2: number; y2: number; len: number; color: string; dash: string; offset: number }
@@ -94,14 +93,16 @@ IDS.forEach(i => REGION_SIZE.set(REGION[i], (REGION_SIZE.get(REGION[i]) ?? 0) + 
 const regCap = new Map<number, number[]>()
 LOCAL_CAP.forEach(i => { if (!regCap.has(REGION[i])) regCap.set(REGION[i], []); regCap.get(REGION[i])!.push(i) })
 const REGION_IDS = [...regCap.keys()]
+const REGION_CAP = new Map<number, number>()
+REGION_IDS.forEach(r => REGION_CAP.set(r, Math.min(3, Math.ceil(REGION_SIZE.get(r)! / 40))))
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
 let linkSeq = 0
 let raf = 0
-let nextSpawn = 0
 let remoteCursor = 0
 let lastBridge = 0
+const regionNextSpawn = new Map<number, number>()
 
 function setActive(id: number, color: string, glow: number) {
   const n = nodes.value[id]
@@ -161,43 +162,40 @@ function tryBridge(now: number): boolean {
   return false
 }
 
-function tryLocal(now: number): boolean {
+function spawnInRegion(r: number, now: number): boolean {
   const activeEmitters = txns.map(t => t.emitter)
-  const actCount = new Map<number, number>()
-  for (const t of txns) actCount.set(REGION[t.emitter], (actCount.get(REGION[t.emitter]) ?? 0) + 1)
-  const usable = REGION_IDS.filter(r => regCap.get(r)!.some(i => !busy[i]))
-  if (!usable.length) return false
-  usable.sort((a, b) => {
-    const sa = (actCount.get(a) ?? 0) / Math.sqrt(REGION_SIZE.get(a)!)
-    const sb = (actCount.get(b) ?? 0) / Math.sqrt(REGION_SIZE.get(b)!)
-    return sa !== sb ? sa - sb : REGION_SIZE.get(b)! - REGION_SIZE.get(a)!
-  })
-  for (const r of usable) {
-    for (const emitter of shuffle(regCap.get(r)!.filter(i => !busy[i]))) {
-      if (activeEmitters.some(a => dist(emitter, a) < MIN_SEP)) continue
-      const pool = NEAR[emitter].filter(j => !busy[j])
-      if (pool.length < 3) continue
-      const k = Math.min(3 + Math.floor(Math.random() * 3), pool.length)
-      startTxn(emitter, weightedPick(emitter, pool, k), now, false)
-      return true
-    }
+  for (const emitter of shuffle(regCap.get(r)!.filter(i => !busy[i]))) {
+    if (activeEmitters.some(a => dist(emitter, a) < MIN_SEP)) continue
+    const pool = NEAR[emitter].filter(j => !busy[j])
+    if (pool.length < 3) continue
+    const k = Math.min(3 + Math.floor(Math.random() * 3), pool.length)
+    startTxn(emitter, weightedPick(emitter, pool, k), now, false)
+    return true
   }
   return false
 }
 
-function trySpawn(now: number) {
-  if (txns.length >= MAX_CONCURRENT) return
-  const noBridge = !txns.some(t => t.bridge)
-  const wantBridge = noBridge && (now - lastBridge > BRIDGE_FORCE_MS || Math.random() < BRIDGE_CHANCE)
-  if (wantBridge && tryBridge(now)) { lastBridge = now; return }
-  tryLocal(now)
+function regionActive(r: number): number {
+  let c = 0
+  for (const t of txns) if (REGION[t.emitter] === r) c++
+  return c
+}
+
+function scheduleSpawns(now: number) {
+  for (const r of REGION_IDS) {
+    if (txns.length >= MAX_CONCURRENT) return
+    const ra = regionActive(r)
+    const due = ra === 0 || (ra < REGION_CAP.get(r)! && now >= (regionNextSpawn.get(r) ?? 0))
+    if (due && spawnInRegion(r, now)) {
+      regionNextSpawn.set(r, now + SPAWN_MIN_MS + ACK_MS + Math.random() * SPAWN_RAND_MS)
+    }
+  }
+  if (txns.length < MAX_CONCURRENT && !txns.some(t => t.bridge) && now - lastBridge > BRIDGE_FORCE_MS) {
+    if (tryBridge(now)) lastBridge = now
+  }
 }
 
 function frame(now: number) {
-  if (now >= nextSpawn) {
-    trySpawn(now)
-    nextSpawn = now + SPAWN_MIN_MS + ACK_MS + Math.random() * SPAWN_RAND_MS
-  }
   const done: Txn[] = []
   for (const tx of txns) {
     const e = now - tx.t0
@@ -228,12 +226,13 @@ function frame(now: number) {
     links.value = links.value.filter(l => !dead.has(l.id))
   }
   if (done.length) txns = txns.filter(tx => !done.includes(tx))
+  scheduleSpawns(now)
   for (const n of nodes.value) {
     if (!n.active) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
   }
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { nextSpawn = performance.now() + 200; raf = requestAnimationFrame(frame) })
+onMounted(() => { raf = requestAnimationFrame(frame) })
 onUnmounted(() => cancelAnimationFrame(raf))
 </script>
