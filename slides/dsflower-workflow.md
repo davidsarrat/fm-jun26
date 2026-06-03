@@ -42,9 +42,9 @@
   <!-- Server-side annotation -->
   <text x="735" y="52" fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle">Local Training</text>
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
-  <foreignObject x="635" y="70.5" width="200" height="9">
+  <foreignObject x="635" y="57" width="200" height="36">
     <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;justify-content:center;">
-      <span class="g-term" :class="$clicks>=1 ? 'disc-on' : ''" data-g="Disclosure control" :style="'font-family:Roboto Mono,monospace;font-size:11px;line-height:1;padding:1.5px 4px;border-radius:2px;cursor:pointer;white-space:nowrap;' + ($clicks>=1 ? 'background:#FFD000;color:#1a1206;font-weight:600;' : 'background:transparent;color:#b0b8c0;')">Disclosure Control</span>
+      <span :class="$clicks>=1 ? 'disc-on' : ''" :style="'font-family:Roboto Mono,monospace;font-size:11px;line-height:1;padding:1.5px 4px;border-radius:2px;white-space:nowrap;' + ($clicks>=1 ? 'background:#FFD000;color:#1a1206;font-weight:600;' : 'background:transparent;color:#b0b8c0;')">Disclosure Control</span>
     </div>
   </foreignObject>
 
@@ -94,7 +94,7 @@
   <text fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle"><textPath href="#flRR" startOffset="50%">weight updates</textPath></text>
 
   <!-- Privacy origin info box (appears on click, under Privacy Controls) -->
-  <foreignObject x="620" y="118" width="190" height="138" v-click="1">
+  <foreignObject x="620" y="130" width="190" height="112" v-click="1">
     <div xmlns="http://www.w3.org/1999/xhtml" class="priv-info">
       <div class="priv-info-title">Protection starts at the node</div>
       <div class="priv-info-body">Privacy controls act on every weight update before it ever reaches the analyst's SuperLink.</div>
@@ -111,11 +111,11 @@ Data never leaves the hospital. Only **weight deltas** travel back.
   height: 100%;
   box-sizing: border-box;
   border-radius: 9px;
-  padding: 12px 14px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background: linear-gradient(150deg, rgba(38,26,6,0.80), rgba(16,11,3,0.66));
   border: 1px solid rgba(255,208,0,0.40);
   border-left: 3px solid #FFD000;
@@ -134,7 +134,7 @@ Data never leaves the hospital. Only **weight deltas** travel back.
 }
 .priv-info-body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 9.5px;
+  font-size: 10.5px;
   line-height: 1.5;
   color: #f2e8d2;
 }
