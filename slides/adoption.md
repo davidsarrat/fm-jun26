@@ -43,6 +43,12 @@
       <circle :cx="n.x" :cy="n.y" r="1.4" :fill="n.dot"/>
     </template>
   </g>
+  <g>
+    <g v-for="(pn, i) in popNodes" :key="'pop' + i" :transform="`translate(${pn.x},${pn.y}) scale(${pn.scale})`" :opacity="pn.o">
+      <circle r="4.2" :fill="POP_COLOR" :opacity="pn.glow"/>
+      <circle r="1.6" :fill="POP_DOT"/>
+    </g>
+  </g>
 </svg>
 </div>
 
@@ -116,6 +122,17 @@ const EU = (() => {
 // projected (Robinson) bounding box covering Senegal, Cameroon, Ethiopia, Kenya, Uganda
 const AFRICA = { x: 424.7, y: 178.8, w: 236.4, h: 100.1 }
 
+// new African data nodes that pop in (staggered) after the second click
+const POP_COLOR = '#66ddaa', POP_DOT = '#d6fff0'
+const POP_DELAY = 900, POP_STAGGER = 500, POP_DUR = 420
+const popNodes = ref([
+  { x: 603.4, y: 252.0, scale: 0, o: 0, glow: 0 }, // Nairobi
+  { x: 527.4, y: 235.0, scale: 0, o: 0, glow: 0 }, // Douala
+  { x: 451.4, y: 201.1, scale: 0, o: 0, glow: 0 }, // Dakar
+  { x: 608.5, y: 219.2, scale: 0, o: 0, glow: 0 }, // Addis Ababa
+])
+let africaT0 = 0
+
 // crisp zoom: tween the viewBox (vector stays sharp every frame)
 // $clicks (auto-injected by Slidev) is scoped to THIS slide
 const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
@@ -138,7 +155,10 @@ function tweenTo(to: { x: number; y: number; w: number; h: number }) {
   zoomRaf = requestAnimationFrame(step)
 }
 const zoomFor = (c: number | undefined) => (c ?? 0) >= 2 ? AFRICA : (c ?? 0) >= 1 ? EU : FULL
-watch($clicks, c => tweenTo(zoomFor(c)))
+watch($clicks, c => {
+  tweenTo(zoomFor(c))
+  africaT0 = (c ?? 0) >= 2 ? performance.now() : 0
+})
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -279,9 +299,17 @@ function frame(now: number) {
   for (const n of nodes.value) {
     if (!n.active) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
   }
+  popNodes.value.forEach((pn, i) => {
+    const e = africaT0 ? now - africaT0 - POP_DELAY - i * POP_STAGGER : -1
+    if (e < 0) { pn.scale = 0; pn.o = 0; return }
+    const p = Math.min(1, e / POP_DUR), c1 = 1.70158, c3 = c1 + 1
+    pn.scale = 1 + c3 * (p - 1) ** 3 + c1 * (p - 1) ** 2
+    pn.o = Math.min(1, e / 120)
+    pn.glow = 0.5 + 0.12 * Math.sin(now * 0.005 + i)
+  })
   raf = requestAnimationFrame(frame)
 }
 
-onMounted(() => { vb.value = { ...zoomFor($clicks.value) }; raf = requestAnimationFrame(frame) })
+onMounted(() => { vb.value = { ...zoomFor($clicks.value) }; africaT0 = ($clicks.value ?? 0) >= 2 ? performance.now() : 0; raf = requestAnimationFrame(frame) })
 onUnmounted(() => { cancelAnimationFrame(raf); cancelAnimationFrame(zoomRaf) })
 </script>
