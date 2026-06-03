@@ -32,16 +32,22 @@
     <line v-for="l in links" :key="l.id" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" :stroke="l.color" stroke-width="0.8" stroke-opacity="0.9" :stroke-dasharray="l.dash" :stroke-dashoffset="l.offset"/>
   </g>
   <g>
-    <template v-for="n in nodes" :key="n.id">
+    <template v-for="n in idleNodes" :key="n.id">
       <circle :cx="n.x" :cy="n.y" r="3" :fill="n.color" :opacity="n.glow"/>
       <circle :cx="n.x" :cy="n.y" r="1.2" :fill="n.dot"/>
+    </template>
+  </g>
+  <g>
+    <template v-for="n in activeNodes" :key="n.id">
+      <circle :cx="n.x" :cy="n.y" r="3.4" :fill="n.color" :opacity="n.glow"/>
+      <circle :cx="n.x" :cy="n.y" r="1.4" :fill="n.dot"/>
     </template>
   </g>
 </svg>
 </div>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const COORD: [number, number][] = [
   [65.3,180.1],[196.9,96.9],[223.9,86.2],[226.1,186.1],[230.6,78.6],[275.4,114.8],[276.6,121.4],[288.0,228.0],[291.4,133.6],[296.8,110.4],[298.5,109.2],[299.4,123.9],[300.9,122.9],[315.3,103.4],[317.1,189.1],[318.3,113.3],[361.9,342.3],[372.1,322.8],[477.8,117.0],[478.2,120.0],[480.2,82.5],[485.1,79.2],[487.6,130.9],[490.4,119.4],[493.1,69.9],[493.8,85.0],[494.9,79.0],[495.0,110.2],[495.8,77.9],[495.8,111.8],[495.9,95.3],[496.6,86.7],[497.0,84.1],[499.0,122.4],[499.2,85.0],[499.7,84.8],[499.8,84.0],[500.3,82.7],[500.8,100.0],[505.4,115.8],[505.6,116.3],[505.8,93.0],[510.5,86.8],[510.6,85.7],[510.8,83.6],[511.1,121.0],[511.7,82.2],[512.1,81.4],[512.3,83.1],[512.9,86.6],[513.2,85.0],[514.4,104.4],[514.9,82.9],[515.0,90.6],[515.2,93.5],[515.6,79.6],[516.5,100.2],[518.0,84.8],[519.3,104.7],[519.4,95.6],[519.7,89.5],[520.1,89.5],[521.1,87.7],[521.2,89.1],[521.2,91.3],[521.3,87.0],[523.0,60.2],[523.1,103.5],[523.7,70.8],[523.7,78.6],[524.1,59.7],[524.4,48.7],[524.6,94.4],[526.9,90.7],[526.9,94.5],[527.6,103.6],[527.9,83.0],[528.3,100.3],[528.5,108.8],[528.6,95.2],[529.0,72.0],[529.3,72.2],[529.8,103.7],[530.4,72.4],[531.3,82.2],[531.7,77.0],[532.0,114.7],[532.1,81.8],[533.1,101.6],[535.2,89.2],[538.4,32.4],[539.6,59.8],[540.0,102.4],[540.7,91.9],[543.4,94.5],[543.8,48.5],[546.7,108.5],[546.8,84.1],[548.6,89.2],[550.4,82.6],[554.4,45.1],[555.8,125.0],[555.9,58.9],[556.1,74.5],[558.8,99.5],[559.2,118.7],[560.9,64.2],[562.0,127.1],[566.5,135.5],[568.6,98.3],[585.1,120.9],[643.1,130.7],[694.6,74.2],[801.6,121.0],[810.4,349.6],[826.3,148.5],[832.5,129.2],[832.6,128.4],[833.4,129.7],[868.9,134.4],[879.2,368.2]
@@ -50,28 +56,31 @@ const COORD: [number, number][] = [
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
 const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
-const QUERY_MS = 800, RESULT_MS = 800
+const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
+const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
 const MAX_CONCURRENT = 5
-const LOCAL_MAXD = 50
+const MIN_D = 12, LOCAL_MAXD = 50
 const BRIDGE_FORCE_MS = 3000
 const BRIDGE_CHANCE = 0.3
 
-type NodeS = { id: number; x: number; y: number; color: string; dot: string; glow: number }
+type NodeS = { id: number; x: number; y: number; color: string; dot: string; glow: number; active: boolean }
 type Link = { id: number; x1: number; y1: number; x2: number; y2: number; len: number; color: string; dash: string; offset: number }
 type Txn = { emitter: number; targets: number[]; t0: number; linkIds: number[]; bridge: boolean }
 
-const nodes = ref<NodeS[]>(COORD.map(([x, y], id) => ({ id, x, y, color: IDLE_GLOW, dot: IDLE_DOT, glow: 0.1 })))
+const nodes = ref<NodeS[]>(COORD.map(([x, y], id) => ({ id, x, y, color: IDLE_GLOW, dot: IDLE_DOT, glow: 0.1, active: false })))
 const links = ref<Link[]>([])
+const idleNodes = computed(() => nodes.value.filter(n => !n.active))
+const activeNodes = computed(() => nodes.value.filter(n => n.active))
 
-const N = COORD.length
 const IDS = COORD.map((_, i) => i)
 function dist(a: number, b: number) {
   const [ax, ay] = COORD[a], [bx, by] = COORD[b]
   return Math.hypot(ax - bx, ay - by)
 }
-const NEAR: number[][] = IDS.map(i => IDS.filter(j => j !== i && dist(i, j) <= LOCAL_MAXD))
+const NEAR: number[][] = IDS.map(i => IDS.filter(j => j !== i && dist(i, j) >= MIN_D && dist(i, j) <= LOCAL_MAXD))
+const NEAREST: number[] = IDS.map(i => Math.min(...IDS.filter(j => j !== i).map(j => dist(i, j))))
 const LOCAL_CAP = IDS.filter(i => NEAR[i].length >= 3)
-const REMOTE_NODES = IDS.filter(i => NEAR[i].length < 3)
+const REMOTE_NODES = IDS.filter(i => NEAREST[i] > LOCAL_MAXD)
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -81,9 +90,13 @@ let nextSpawn = 0
 let remoteCursor = 0
 let lastBridge = 0
 
-function setNode(id: number, color: string, glow: number, dot?: string) {
+function setActive(id: number, color: string, glow: number) {
   const n = nodes.value[id]
-  n.color = color; n.glow = glow; n.dot = dot ?? color
+  n.color = color; n.dot = color; n.glow = glow; n.active = true
+}
+function setIdle(id: number) {
+  const n = nodes.value[id]
+  n.color = IDLE_GLOW; n.dot = IDLE_DOT; n.glow = 0.1; n.active = false
 }
 
 function shuffle<T>(a: T[]): T[] {
@@ -162,15 +175,17 @@ function frame(now: number) {
   const done: Txn[] = []
   for (const tx of txns) {
     const e = now - tx.t0
+    setActive(tx.emitter, BLUE, 0.24 + 0.05 * Math.sin(now * 0.012))
     if (e < QUERY_MS) {
       const p = e / QUERY_MS
-      setNode(tx.emitter, BLUE, 0.24 + 0.05 * Math.sin(now * 0.012))
-      tx.targets.forEach(t => setNode(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = YELLOW; l.offset = D - p * (l.len + 2 * D) } })
-    } else if (e < QUERY_MS + RESULT_MS) {
-      const p = (e - QUERY_MS) / RESULT_MS
-      setNode(tx.emitter, GREEN, 0.24 + 0.05 * Math.sin(now * 0.012))
-      tx.targets.forEach(t => setNode(t, IDLE_GLOW, 0.1, IDLE_DOT))
+    } else if (e < QUERY_MS + PAUSE_MS) {
+      tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) l.offset = -(l.len + D) })
+    } else if (e < TOTAL) {
+      const p = (e - QUERY_MS - PAUSE_MS) / RESULT_MS
+      tx.targets.forEach(t => setActive(t, GREEN, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
       tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
     } else {
       done.push(tx)
@@ -179,14 +194,14 @@ function frame(now: number) {
   for (const tx of done) {
     busy[tx.emitter] = false
     tx.targets.forEach(t => busy[t] = false)
-    setNode(tx.emitter, IDLE_GLOW, 0.1, IDLE_DOT)
-    tx.targets.forEach(t => setNode(t, IDLE_GLOW, 0.1, IDLE_DOT))
+    setIdle(tx.emitter)
+    tx.targets.forEach(t => setIdle(t))
     const dead = new Set(tx.linkIds)
     links.value = links.value.filter(l => !dead.has(l.id))
   }
   if (done.length) txns = txns.filter(tx => !done.includes(tx))
   for (const n of nodes.value) {
-    if (!busy[n.id]) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
+    if (!n.active) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
   }
   raf = requestAnimationFrame(frame)
 }
