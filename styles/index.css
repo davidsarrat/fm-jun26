@@ -241,58 +241,6 @@ td {
 .exec-lines:not(.slidev-vclick-hidden) > div:nth-child(18) { animation-delay: 4.5s; }
 
 /* ————————————————————————————————
-   Blur transition (Recap ↔ dsFlower workflow)
-   blur-out 0.8s, then blur-in 0.8s — symmetric both ways.
-   ease-in-out + a deep blur so the slide swap happens while both are
-   featureless, hiding the cut and keeping the motion smooth. */
-
-/* Page-level: timing only (so Vue waits) + keep leaving slide on top.
-   The dark overlay (.slidev-layout::after) and its backdrop-filter are never touched. */
-.blur-enter-active,
-.blur-leave-active {
-  transition: filter 0.8s ease-in-out;
-}
-.blur-enter-active {
-  transition-delay: 0.8s;
-}
-.blur-leave-active {
-  z-index: 20;
-}
-/* Visual: blur only the slide content, never the dark layer */
-.blur-enter-active .slidev-layout > *,
-.blur-leave-active .slidev-layout > * {
-  transition: filter 0.8s ease-in-out;
-}
-.blur-enter-active .slidev-layout > * {
-  transition-delay: 0.8s;
-}
-.blur-enter-from .slidev-layout > *,
-.blur-leave-to .slidev-layout > * {
-  filter: blur(40px);
-}
-.blur-enter-to .slidev-layout > *,
-.blur-leave-from .slidev-layout > * {
-  filter: blur(0);
-}
-
-/* Both slides are stacked during the blur, so their two dark overlays would
-   compound and over-darken the lava. Cross-fade them: as the leaving overlay
-   fades out the entering one fades in, so their combined darkness never
-   exceeds a single overlay (never darker) and never clears (no lava flash). */
-.blur-leave-active .slidev-layout::after,
-.blur-enter-active .slidev-layout::after {
-  transition: opacity 0.8s linear;
-}
-.blur-leave-from .slidev-layout::after,
-.blur-enter-to .slidev-layout::after {
-  opacity: 1;
-}
-.blur-leave-to .slidev-layout::after,
-.blur-enter-from .slidev-layout::after {
-  opacity: 0;
-}
-
-/* ————————————————————————————————
    Miscellaneous
    ———————————————————————————————— */
 
