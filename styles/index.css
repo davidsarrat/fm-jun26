@@ -274,6 +274,20 @@ td {
   filter: blur(0);
 }
 
+/* Both slides are stacked during the blur, so their two dark overlays would
+   compound and over-darken the lava. Keep only the leaving slide's overlay
+   (it sits on top, z-index 20) and snap the entering one on just as the
+   leaving slide unmounts (~1s), so a single overlay is visible throughout. */
+.blur-enter-from .slidev-layout::after {
+  opacity: 0;
+}
+.blur-enter-to .slidev-layout::after {
+  opacity: 1;
+}
+.blur-enter-active .slidev-layout::after {
+  transition: opacity 0s linear 0.85s;
+}
+
 /* ————————————————————————————————
    Miscellaneous
    ———————————————————————————————— */
