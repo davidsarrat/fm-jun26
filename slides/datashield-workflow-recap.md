@@ -1,7 +1,7 @@
 ## Recap: Classic DataSHIELD workflow
 
-<div style="margin-top: 0.5em;">
-<svg viewBox="0 0 780 340" style="width: 100%; max-height: 390px;">
+<div style="margin-top: 0.2em;">
+<svg viewBox="0 0 810 340" style="width: 100%; max-height: 330px;">
 
   <!-- Hospital nodes (top row) -->
   <g transform="translate(120,65)">
