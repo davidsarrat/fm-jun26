@@ -63,6 +63,10 @@ src: ./slides/bridge.md
 ---
 
 ---
+src: ./slides/match.md
+---
+
+---
 src: ./slides/dsflower-workflow.md
 ---
 
