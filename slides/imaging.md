@@ -20,9 +20,9 @@ These are the actual scans dsFlower trains on. A chest CT is a **512 &times; 512
 **Three vision templates ship ready to run:**
 
 <div class="grid grid-cols-1 gap-2 mt-2">
-  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>ResNet-18</strong> <span style="color:#8a7d70;">&middot; image classification</span></div>
-  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>DenseNet-121</strong> <span style="color:#8a7d70;">&middot; image classification</span></div>
-  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>U-Net 2D</strong> <span style="color:#8a7d70;">&middot; segmentation</span></div>
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>ResNet-18</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>DenseNet-121</strong> <span style="color:#FFD000;">&middot; image classification</span></div>
+  <div class="step-card" style="padding: 0.55em 0.9em;"><strong>U-Net 2D</strong> <span style="color:#FFD000;">&middot; segmentation</span></div>
 </div>
 
 </div>
