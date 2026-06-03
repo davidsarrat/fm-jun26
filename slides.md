@@ -80,6 +80,10 @@ src: ./slides/privacy-model.md
 ---
 
 ---
+src: ./slides/models.md
+---
+
+---
 src: ./slides/server-stack.md
 ---
 
@@ -92,19 +96,7 @@ src: ./slides/researcher-api.md
 ---
 
 ---
-src: ./slides/models.md
----
-
----
-src: ./slides/secure-xgboost.md
----
-
----
 src: ./slides/strategies.md
----
-
----
-src: ./slides/privacy-profiles.md
 ---
 
 ---
