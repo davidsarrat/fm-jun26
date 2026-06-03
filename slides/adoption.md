@@ -28,139 +28,169 @@
     <use href="#worldLand" fill="none" stroke="#3aa6ff" stroke-width="2" stroke-opacity="0.25" filter="url(#wGlow)"/>
     <use href="#worldLand" fill="url(#wFill)" stroke="url(#wStroke)" stroke-width="0.7" stroke-linejoin="round" stroke-opacity="0.8"/>
   </g>
-  <g fill="none" stroke="#FFD000" stroke-width="0.9" stroke-linecap="round" stroke-opacity="0.92" filter="url(#lineGlow)">
-    <path d="M499.7 84.8 L511.7 82.2" stroke-dasharray="9 21.2784" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-21.2784;-21.2784" keyTimes="0;0;0.0667;1"/></path>
-    <path d="M499.7 84.8 L505.8 93" stroke-dasharray="9 19.2201" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-19.2201;-19.2201" keyTimes="0;0;0.0667;1"/></path>
-    <path d="M499.7 84.8 L496.2 74.3" stroke-dasharray="9 20.068" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-20.068;-20.068" keyTimes="0;0;0.0667;1"/></path>
-    <path d="M499.7 84.8 L505.6 116.3" stroke-dasharray="9 41.0478" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-41.0478;-41.0478" keyTimes="0;0;0.0667;1"/></path>
-    <path d="M499.7 84.8 L532.1 81.8" stroke-dasharray="9 41.5386" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-41.5386;-41.5386" keyTimes="0;0;0.0667;1"/></path>
-    <path d="M505.6 116.3 L515.3 101.2" stroke-dasharray="9 26.9471" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-26.9471;-26.9471" keyTimes="0;0.1667;0.2333;1"/></path>
-    <path d="M505.6 116.3 L532 114.7" stroke-dasharray="9 35.4484" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-35.4484;-35.4484" keyTimes="0;0.1667;0.2333;1"/></path>
-    <path d="M505.6 116.3 L505.8 93" stroke-dasharray="9 32.3009" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-32.3009;-32.3009" keyTimes="0;0.1667;0.2333;1"/></path>
-    <path d="M505.6 116.3 L315.3 103.4" stroke-dasharray="9 199.7367" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-199.7367;-199.7367" keyTimes="0;0.1667;0.2333;1"/></path>
-    <path d="M511.7 82.2 L529.3 72.2" stroke-dasharray="9 29.2425" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-29.2425;-29.2425" keyTimes="0;0.3333;0.4;1"/></path>
-    <path d="M511.7 82.2 L540.8 61.4" stroke-dasharray="9 44.7694" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-44.7694;-44.7694" keyTimes="0;0.3333;0.4;1"/></path>
-    <path d="M511.7 82.2 L550.4 82.6" stroke-dasharray="9 47.7021" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-47.7021;-47.7021" keyTimes="0;0.3333;0.4;1"/></path>
-    <path d="M511.7 82.2 L555.9 58.9" stroke-dasharray="9 58.9653" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-58.9653;-58.9653" keyTimes="0;0.3333;0.4;1"/></path>
-    <path d="M532.1 81.8 L528.6 95.2" stroke-dasharray="9 22.8495" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-22.8495;-22.8495" keyTimes="0;0.5;0.5667;1"/></path>
-    <path d="M532.1 81.8 L550.4 82.6" stroke-dasharray="9 27.3175" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-27.3175;-27.3175" keyTimes="0;0.5;0.5667;1"/></path>
-    <path d="M532.1 81.8 L524.1 59.7" stroke-dasharray="9 32.5034" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-32.5034;-32.5034" keyTimes="0;0.5;0.5667;1"/></path>
-    <path d="M499.7 84.8 L318.3 113.3" stroke-dasharray="9 192.6252" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-192.6252;-192.6252" keyTimes="0;0.6667;0.7333;1"/></path>
-    <path d="M499.7 84.8 L315.3 103.4" stroke-dasharray="9 194.3357" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-194.3357;-194.3357" keyTimes="0;0.6667;0.7333;1"/></path>
-    <path d="M499.7 84.8 L879.2 368.2" stroke-dasharray="9 482.641" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-482.641;-482.641" keyTimes="0;0.6667;0.7333;1"/></path>
-    <path d="M499.7 84.8 L791.7 243.6" stroke-dasharray="9 341.3875" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-341.3875;-341.3875" keyTimes="0;0.6667;0.7333;1"/></path>
-    <path d="M499.7 84.8 L549 355.8" stroke-dasharray="9 284.4478" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-284.4478;-284.4478" keyTimes="0;0.6667;0.7333;1"/></path>
-    <path d="M515.3 101.2 L528.6 95.2" stroke-dasharray="9 23.5908" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-23.5908;-23.5908" keyTimes="0;0.8333;0.9;1"/></path>
-    <path d="M515.3 101.2 L532 114.7" stroke-dasharray="9 30.4742" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-30.4742;-30.4742" keyTimes="0;0.8333;0.9;1"/></path>
-    <path d="M515.3 101.2 L560.9 64.2" stroke-dasharray="9 67.7227" stroke-dashoffset="9"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="9;9;-67.7227;-67.7227" keyTimes="0;0.8333;0.9;1"/></path>
-  </g>
-  <g fill="none" stroke="#66ddaa" stroke-width="0.9" stroke-linecap="round" stroke-opacity="0.92" filter="url(#lineGlow)">
-    <path d="M499.7 84.8 L511.7 82.2" stroke-dasharray="9 21.2784" stroke-dashoffset="-21.2784"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-21.2784;-21.2784;9;9" keyTimes="0;0.0667;0.1333;1"/></path>
-    <path d="M499.7 84.8 L505.8 93" stroke-dasharray="9 19.2201" stroke-dashoffset="-19.2201"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-19.2201;-19.2201;9;9" keyTimes="0;0.0667;0.1333;1"/></path>
-    <path d="M499.7 84.8 L496.2 74.3" stroke-dasharray="9 20.068" stroke-dashoffset="-20.068"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-20.068;-20.068;9;9" keyTimes="0;0.0667;0.1333;1"/></path>
-    <path d="M499.7 84.8 L505.6 116.3" stroke-dasharray="9 41.0478" stroke-dashoffset="-41.0478"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-41.0478;-41.0478;9;9" keyTimes="0;0.0667;0.1333;1"/></path>
-    <path d="M499.7 84.8 L532.1 81.8" stroke-dasharray="9 41.5386" stroke-dashoffset="-41.5386"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-41.5386;-41.5386;9;9" keyTimes="0;0.0667;0.1333;1"/></path>
-    <path d="M505.6 116.3 L515.3 101.2" stroke-dasharray="9 26.9471" stroke-dashoffset="-26.9471"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-26.9471;-26.9471;9;9" keyTimes="0;0.2333;0.3;1"/></path>
-    <path d="M505.6 116.3 L532 114.7" stroke-dasharray="9 35.4484" stroke-dashoffset="-35.4484"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-35.4484;-35.4484;9;9" keyTimes="0;0.2333;0.3;1"/></path>
-    <path d="M505.6 116.3 L505.8 93" stroke-dasharray="9 32.3009" stroke-dashoffset="-32.3009"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-32.3009;-32.3009;9;9" keyTimes="0;0.2333;0.3;1"/></path>
-    <path d="M505.6 116.3 L315.3 103.4" stroke-dasharray="9 199.7367" stroke-dashoffset="-199.7367"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-199.7367;-199.7367;9;9" keyTimes="0;0.2333;0.3;1"/></path>
-    <path d="M511.7 82.2 L529.3 72.2" stroke-dasharray="9 29.2425" stroke-dashoffset="-29.2425"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-29.2425;-29.2425;9;9" keyTimes="0;0.4;0.4667;1"/></path>
-    <path d="M511.7 82.2 L540.8 61.4" stroke-dasharray="9 44.7694" stroke-dashoffset="-44.7694"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-44.7694;-44.7694;9;9" keyTimes="0;0.4;0.4667;1"/></path>
-    <path d="M511.7 82.2 L550.4 82.6" stroke-dasharray="9 47.7021" stroke-dashoffset="-47.7021"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-47.7021;-47.7021;9;9" keyTimes="0;0.4;0.4667;1"/></path>
-    <path d="M511.7 82.2 L555.9 58.9" stroke-dasharray="9 58.9653" stroke-dashoffset="-58.9653"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-58.9653;-58.9653;9;9" keyTimes="0;0.4;0.4667;1"/></path>
-    <path d="M532.1 81.8 L528.6 95.2" stroke-dasharray="9 22.8495" stroke-dashoffset="-22.8495"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-22.8495;-22.8495;9;9" keyTimes="0;0.5667;0.6333;1"/></path>
-    <path d="M532.1 81.8 L550.4 82.6" stroke-dasharray="9 27.3175" stroke-dashoffset="-27.3175"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-27.3175;-27.3175;9;9" keyTimes="0;0.5667;0.6333;1"/></path>
-    <path d="M532.1 81.8 L524.1 59.7" stroke-dasharray="9 32.5034" stroke-dashoffset="-32.5034"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-32.5034;-32.5034;9;9" keyTimes="0;0.5667;0.6333;1"/></path>
-    <path d="M499.7 84.8 L318.3 113.3" stroke-dasharray="9 192.6252" stroke-dashoffset="-192.6252"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-192.6252;-192.6252;9;9" keyTimes="0;0.7333;0.8;1"/></path>
-    <path d="M499.7 84.8 L315.3 103.4" stroke-dasharray="9 194.3357" stroke-dashoffset="-194.3357"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-194.3357;-194.3357;9;9" keyTimes="0;0.7333;0.8;1"/></path>
-    <path d="M499.7 84.8 L879.2 368.2" stroke-dasharray="9 482.641" stroke-dashoffset="-482.641"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-482.641;-482.641;9;9" keyTimes="0;0.7333;0.8;1"/></path>
-    <path d="M499.7 84.8 L791.7 243.6" stroke-dasharray="9 341.3875" stroke-dashoffset="-341.3875"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-341.3875;-341.3875;9;9" keyTimes="0;0.7333;0.8;1"/></path>
-    <path d="M499.7 84.8 L549 355.8" stroke-dasharray="9 284.4478" stroke-dashoffset="-284.4478"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-284.4478;-284.4478;9;9" keyTimes="0;0.7333;0.8;1"/></path>
-    <path d="M515.3 101.2 L528.6 95.2" stroke-dasharray="9 23.5908" stroke-dashoffset="-23.5908"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-23.5908;-23.5908;9;9" keyTimes="0;0.9;0.9667;1"/></path>
-    <path d="M515.3 101.2 L532 114.7" stroke-dasharray="9 30.4742" stroke-dashoffset="-30.4742"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-30.4742;-30.4742;9;9" keyTimes="0;0.9;0.9667;1"/></path>
-    <path d="M515.3 101.2 L560.9 64.2" stroke-dasharray="9 67.7227" stroke-dashoffset="-67.7227"><animate attributeName="stroke-dashoffset" dur="12.0s" begin="0s" repeatCount="indefinite" values="-67.7227;-67.7227;9;9" keyTimes="0;0.9;0.9667;1"/></path>
+  <g fill="none" stroke-linecap="round" filter="url(#lineGlow)">
+    <line v-for="l in links" :key="l.id" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" :stroke="l.color" stroke-width="0.8" stroke-opacity="0.9" :stroke-dasharray="l.dash" :stroke-dashoffset="l.offset"/>
   </g>
   <g>
-    <g>
-      <circle cx="496.2" cy="74.3" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="496.2" cy="74.3" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="499.7" cy="84.8" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="499.7" cy="84.8" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="511.7" cy="82.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="511.7" cy="82.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="505.8" cy="93" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="505.8" cy="93" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="505.6" cy="116.3" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="505.6" cy="116.3" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="515.3" cy="101.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="515.3" cy="101.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="528.6" cy="95.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="528.6" cy="95.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="532.1" cy="81.8" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="532.1" cy="81.8" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="529.3" cy="72.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="529.3" cy="72.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="524.1" cy="59.7" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="524.1" cy="59.7" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="540.8" cy="61.4" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="540.8" cy="61.4" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="555.9" cy="58.9" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="555.9" cy="58.9" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="532" cy="114.7" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="532" cy="114.7" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="550.4" cy="82.6" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="550.4" cy="82.6" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="560.9" cy="64.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="560.9" cy="64.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="315.3" cy="103.4" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="1.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="315.3" cy="103.4" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="318.3" cy="113.3" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="318.3" cy="113.3" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="879.2" cy="368.2" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="2.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="879.2" cy="368.2" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="791.7" cy="243.6" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.0s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="791.7" cy="243.6" r="1.5" fill="#ff8a8a"/>
-    </g>
-    <g>
-      <circle cx="549" cy="355.8" r="4" fill="#ff5a5a" opacity="0.12"><animate attributeName="opacity" dur="3s" begin="0.5s" values="0.06;0.2;0.06" repeatCount="indefinite"/></circle>
-      <circle cx="549" cy="355.8" r="1.5" fill="#ff8a8a"/>
-    </g>
+    <template v-for="n in nodes" :key="n.id">
+      <circle :cx="n.x" :cy="n.y" r="3" :fill="n.color" :opacity="n.glow"/>
+      <circle :cx="n.x" :cy="n.y" r="1.2" :fill="n.dot"/>
+    </template>
   </g>
 </svg>
 </div>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const COORD: [number, number][] = [
+  [65.3,180.1],[196.9,96.9],[223.9,86.2],[226.1,186.1],[230.6,78.6],[275.4,114.8],[276.6,121.4],[288.0,228.0],[291.4,133.6],[296.8,110.4],[298.5,109.2],[299.4,123.9],[300.9,122.9],[315.3,103.4],[317.1,189.1],[318.3,113.3],[361.9,342.3],[372.1,322.8],[477.8,117.0],[478.2,120.0],[480.2,82.5],[485.1,79.2],[487.6,130.9],[490.4,119.4],[493.1,69.9],[493.8,85.0],[494.9,79.0],[495.0,110.2],[495.8,77.9],[495.8,111.8],[495.9,95.3],[496.6,86.7],[497.0,84.1],[499.0,122.4],[499.2,85.0],[499.7,84.8],[499.8,84.0],[500.3,82.7],[500.8,100.0],[505.4,115.8],[505.6,116.3],[505.8,93.0],[510.5,86.8],[510.6,85.7],[510.8,83.6],[511.1,121.0],[511.7,82.2],[512.1,81.4],[512.3,83.1],[512.9,86.6],[513.2,85.0],[514.4,104.4],[514.9,82.9],[515.0,90.6],[515.2,93.5],[515.6,79.6],[516.5,100.2],[518.0,84.8],[519.3,104.7],[519.4,95.6],[519.7,89.5],[520.1,89.5],[521.1,87.7],[521.2,89.1],[521.2,91.3],[521.3,87.0],[523.0,60.2],[523.1,103.5],[523.7,70.8],[523.7,78.6],[524.1,59.7],[524.4,48.7],[524.6,94.4],[526.9,90.7],[526.9,94.5],[527.6,103.6],[527.9,83.0],[528.3,100.3],[528.5,108.8],[528.6,95.2],[529.0,72.0],[529.3,72.2],[529.8,103.7],[530.4,72.4],[531.3,82.2],[531.7,77.0],[532.0,114.7],[532.1,81.8],[533.1,101.6],[535.2,89.2],[538.4,32.4],[539.6,59.8],[540.0,102.4],[540.7,91.9],[543.4,94.5],[543.8,48.5],[546.7,108.5],[546.8,84.1],[548.6,89.2],[550.4,82.6],[554.4,45.1],[555.8,125.0],[555.9,58.9],[556.1,74.5],[558.8,99.5],[559.2,118.7],[560.9,64.2],[562.0,127.1],[566.5,135.5],[568.6,98.3],[585.1,120.9],[643.1,130.7],[694.6,74.2],[801.6,121.0],[810.4,349.6],[826.3,148.5],[832.5,129.2],[832.6,128.4],[833.4,129.7],[868.9,134.4],[879.2,368.2]
+]
+
+const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
+const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const D = 7
+const QUERY_MS = 800, RESULT_MS = 800
+const MAX_CONCURRENT = 5
+const LOCAL_MAXD = 50
+const BRIDGE_FORCE_MS = 3000
+const BRIDGE_CHANCE = 0.3
+
+type NodeS = { id: number; x: number; y: number; color: string; dot: string; glow: number }
+type Link = { id: number; x1: number; y1: number; x2: number; y2: number; len: number; color: string; dash: string; offset: number }
+type Txn = { emitter: number; targets: number[]; t0: number; linkIds: number[]; bridge: boolean }
+
+const nodes = ref<NodeS[]>(COORD.map(([x, y], id) => ({ id, x, y, color: IDLE_GLOW, dot: IDLE_DOT, glow: 0.1 })))
+const links = ref<Link[]>([])
+
+const N = COORD.length
+const IDS = COORD.map((_, i) => i)
+function dist(a: number, b: number) {
+  const [ax, ay] = COORD[a], [bx, by] = COORD[b]
+  return Math.hypot(ax - bx, ay - by)
+}
+const NEAR: number[][] = IDS.map(i => IDS.filter(j => j !== i && dist(i, j) <= LOCAL_MAXD))
+const LOCAL_CAP = IDS.filter(i => NEAR[i].length >= 3)
+const REMOTE_NODES = IDS.filter(i => NEAR[i].length < 3)
+
+const busy: boolean[] = COORD.map(() => false)
+let txns: Txn[] = []
+let linkSeq = 0
+let raf = 0
+let nextSpawn = 0
+let remoteCursor = 0
+let lastBridge = 0
+
+function setNode(id: number, color: string, glow: number, dot?: string) {
+  const n = nodes.value[id]
+  n.color = color; n.glow = glow; n.dot = dot ?? color
+}
+
+function shuffle<T>(a: T[]): T[] {
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] }
+  return a
+}
+
+function weightedPick(emitter: number, pool: number[], k: number): number[] {
+  const chosen: number[] = []
+  const cand = [...pool]
+  while (chosen.length < k && cand.length) {
+    const w = cand.map(c => 1 / (dist(emitter, c) ** 2 + 1))
+    let s = w.reduce((a, b) => a + b, 0) * Math.random()
+    let i = 0
+    while (i < cand.length - 1 && (s -= w[i]) > 0) i++
+    chosen.push(cand[i]); cand.splice(i, 1)
+  }
+  return chosen
+}
+
+function startTxn(emitter: number, targets: number[], now: number, bridge: boolean) {
+  busy[emitter] = true
+  targets.forEach(t => busy[t] = true)
+  const linkIds: number[] = []
+  for (const t of targets) {
+    const [x1, y1] = COORD[emitter], [x2, y2] = COORD[t]
+    const len = Math.hypot(x2 - x1, y2 - y1)
+    const id = linkSeq++
+    links.value.push({ id, x1, y1, x2, y2, len, color: YELLOW, dash: `${D} ${len + D}`, offset: D })
+    linkIds.push(id)
+  }
+  txns.push({ emitter, targets, t0: now, linkIds, bridge })
+}
+
+function tryBridge(now: number): boolean {
+  if (!REMOTE_NODES.length) return false
+  for (let s = 0; s < REMOTE_NODES.length; s++) {
+    const ci = (remoteCursor + s) % REMOTE_NODES.length
+    const R = REMOTE_NODES[ci]
+    if (busy[R]) continue
+    const ep = LOCAL_CAP.filter(i => !busy[i])
+    if (!ep.length) break
+    const emitter = ep.reduce((best, i) => dist(R, i) < dist(R, best) ? i : best)
+    remoteCursor = (ci + 1) % REMOTE_NODES.length
+    const targets = [R, ...REMOTE_NODES.filter(i => i !== R && !busy[i] && dist(R, i) <= LOCAL_MAXD).slice(0, 2)]
+    startTxn(emitter, targets, now, true)
+    return true
+  }
+  return false
+}
+
+function tryLocal(now: number): boolean {
+  for (const emitter of shuffle(LOCAL_CAP.filter(i => !busy[i]))) {
+    const pool = NEAR[emitter].filter(i => !busy[i])
+    if (pool.length < 3) continue
+    const k = Math.min(3 + Math.floor(Math.random() * 3), pool.length)
+    startTxn(emitter, weightedPick(emitter, pool, k), now, false)
+    return true
+  }
+  return false
+}
+
+function trySpawn(now: number) {
+  if (txns.length >= MAX_CONCURRENT) return
+  const noBridge = !txns.some(t => t.bridge)
+  const wantBridge = noBridge && (now - lastBridge > BRIDGE_FORCE_MS || Math.random() < BRIDGE_CHANCE)
+  if (wantBridge && tryBridge(now)) { lastBridge = now; return }
+  tryLocal(now)
+}
+
+function frame(now: number) {
+  if (now >= nextSpawn) {
+    trySpawn(now)
+    nextSpawn = now + 300 + Math.random() * 700
+  }
+  const done: Txn[] = []
+  for (const tx of txns) {
+    const e = now - tx.t0
+    if (e < QUERY_MS) {
+      const p = e / QUERY_MS
+      setNode(tx.emitter, BLUE, 0.24 + 0.05 * Math.sin(now * 0.012))
+      tx.targets.forEach(t => setNode(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
+      tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = YELLOW; l.offset = D - p * (l.len + 2 * D) } })
+    } else if (e < QUERY_MS + RESULT_MS) {
+      const p = (e - QUERY_MS) / RESULT_MS
+      setNode(tx.emitter, GREEN, 0.24 + 0.05 * Math.sin(now * 0.012))
+      tx.targets.forEach(t => setNode(t, IDLE_GLOW, 0.1, IDLE_DOT))
+      tx.linkIds.forEach(id => { const l = links.value.find(x => x.id === id); if (l) { l.color = GREEN; l.offset = -(l.len + D) + p * (l.len + 2 * D) } })
+    } else {
+      done.push(tx)
+    }
+  }
+  for (const tx of done) {
+    busy[tx.emitter] = false
+    tx.targets.forEach(t => busy[t] = false)
+    setNode(tx.emitter, IDLE_GLOW, 0.1, IDLE_DOT)
+    tx.targets.forEach(t => setNode(t, IDLE_GLOW, 0.1, IDLE_DOT))
+    const dead = new Set(tx.linkIds)
+    links.value = links.value.filter(l => !dead.has(l.id))
+  }
+  if (done.length) txns = txns.filter(tx => !done.includes(tx))
+  for (const n of nodes.value) {
+    if (!busy[n.id]) n.glow = 0.08 + 0.04 * Math.sin(now * 0.002 + n.id)
+  }
+  raf = requestAnimationFrame(frame)
+}
+
+onMounted(() => { nextSpawn = performance.now() + 200; raf = requestAnimationFrame(frame) })
+onUnmounted(() => cancelAnimationFrame(raf))
+</script>
