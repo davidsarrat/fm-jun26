@@ -67,6 +67,10 @@ src: ./slides/match.md
 ---
 
 ---
+src: ./slides/datashield-workflow-recap.md
+---
+
+---
 src: ./slides/dsflower-workflow.md
 ---
 
