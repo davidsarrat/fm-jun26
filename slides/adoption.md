@@ -166,14 +166,15 @@ function tweenTo(to: { x: number; y: number; w: number; h: number }) {
 const zoomFor = (c: number | undefined) => (c ?? 0) >= 4 ? AFRICA : (c ?? 0) >= 2 ? EU : FULL
 const cardText = computed(() => {
   const c = $clicks.value ?? 0
-  return c === 1 ? '11 international consortia / projects'
+  return c === 1 ? '11 international projects'
     : c === 3 ? '36 European projects'
     : c === 5 ? 'Planned: 50 African nodes'
     : ''
 })
 watch($clicks, c => {
   tweenTo(zoomFor(c))
-  africaT0 = (c ?? 0) >= 4 ? performance.now() : 0
+  if ((c ?? 0) >= 4) { if (!africaT0) africaT0 = performance.now() }
+  else africaT0 = 0
 })
 
 const busy: boolean[] = COORD.map(() => false)
