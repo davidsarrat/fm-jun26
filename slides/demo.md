@@ -137,7 +137,7 @@ onMounted(() => {
 <!-- Login -->
 <div v-click style="background: rgba(15,10,8,0.7); border-radius: 6px; padding: 0.5em 0.8em; margin-top: 4px; color: #c8b8a8;">
 builder <span style="color:#b0a8a0;">&lt;-</span> DSI::<span style="color:#78a9ff;">newDSLoginBuilder</span>()
-<br/>builder$<span style="color:#78a9ff;">append</span>(server = <span style="color:#ffaacc;">"cleveland"</span>, url = <span style="color:#ffaacc;">"https://datashield.ccf.org"</span>, table = <span style="color:#ffaacc;">"dsflower_demo.heart_cleveland"</span>, <span style="color:#666;">...</span>) <span style="color:#666;"># + credentials</span>
+<br/>builder$<span style="color:#78a9ff;">append</span>(server = <span style="color:#ffaacc;">"cleveland"</span>, url = <span style="color:#ffaacc;">"https://datashield.ccf.org"</span>, table = <span style="color:#ffaacc;">"dsflower_demo.heart_cleveland"</span>, <span style="color:#666;">...</span>)
 <br/>builder$<span style="color:#78a9ff;">append</span>(server = <span style="color:#ffaacc;">"hungary"</span>, url = <span style="color:#ffaacc;">"https://datashield.semmelweis.hu"</span>, table = <span style="color:#ffaacc;">"dsflower_demo.heart_hungary"</span>, <span style="color:#666;">...</span>)
 <br/>builder$<span style="color:#78a9ff;">append</span>(server = <span style="color:#ffaacc;">"va"</span>, url = <span style="color:#ffaacc;">"https://datashield.va.gov"</span>, table = <span style="color:#ffaacc;">"dsflower_demo.heart_va"</span>, <span style="color:#666;">...</span>)
 <br/>conns <span style="color:#b0a8a0;">&lt;-</span> DSI::<span style="color:#78a9ff;">datashield.login</span>(logins = builder$<span style="color:#78a9ff;">build</span>(), assign = <span style="color:#88ccff;">TRUE</span>, symbol = <span style="color:#ffaacc;">"D"</span>)
@@ -173,43 +173,56 @@ run <span style="color:#b0a8a0;">&lt;-</span> dsFlowerClient::<span style="color
 <div style="animation-delay:1.4s">&nbsp; hungary: SuperNode <span style="color:#66ddaa;">connected</span></div>
 <div style="animation-delay:1.8s">&nbsp; va: SuperNode <span style="color:#66ddaa;">connected</span></div>
 <div style="animation-delay:2.3s">&nbsp; Code verification <span style="color:#66ddaa;">passed</span> on all servers <span style="color:#b0a8a0;">(app hash matches server templates)</span></div>
-<div style="animation-delay:3.0s"><span style="color:#88ccff;">[ROUND &nbsp;1/10]</span> 3 clients · distributed loss: 0.4408</div>
-<div style="animation-delay:3.6s"><span style="color:#88ccff;">[ROUND &nbsp;2/10]</span> 3 clients · distributed loss: 0.4408</div>
-<div style="animation-delay:4.0s"><span style="color:#b0a8a0;">&nbsp;&nbsp;... converged at round 1, stable through round 10</span></div>
-<div style="animation-delay:4.6s"><span style="color:#88ccff;">[ROUND 10/10]</span> 3 clients · distributed loss: 0.4408</div>
-<div style="animation-delay:5.0s"><span style="color:#66ddaa;">Model saved to ./dsflower_output/sklearn_logreg_FedAvg_10r</span></div>
-<div style="animation-delay:5.2s">SuperLink stopped.</div>
+<div style="animation-delay:3.0s"><span style="color:#88ccff;">[ROUND &nbsp;1/10]</span> 3 clients · distributed loss: 0.4490</div>
+<div style="animation-delay:3.3s"><span style="color:#88ccff;">[ROUND &nbsp;2/10]</span> 3 clients · distributed loss: 0.4483</div>
+<div style="animation-delay:3.6s"><span style="color:#88ccff;">[ROUND &nbsp;3/10]</span> 3 clients · distributed loss: 0.4474</div>
+<div style="animation-delay:3.9s"><span style="color:#88ccff;">[ROUND &nbsp;4/10]</span> 3 clients · distributed loss: 0.4476</div>
+<div style="animation-delay:4.2s"><span style="color:#88ccff;">[ROUND &nbsp;5/10]</span> 3 clients · distributed loss: 0.4469</div>
+<div style="animation-delay:4.5s"><span style="color:#88ccff;">[ROUND &nbsp;6/10]</span> 3 clients · distributed loss: 0.4469</div>
+<div style="animation-delay:4.8s"><span style="color:#88ccff;">[ROUND &nbsp;7/10]</span> 3 clients · distributed loss: 0.4461</div>
+<div style="animation-delay:5.1s"><span style="color:#88ccff;">[ROUND &nbsp;8/10]</span> 3 clients · distributed loss: 0.4463</div>
+<div style="animation-delay:5.4s"><span style="color:#88ccff;">[ROUND &nbsp;9/10]</span> 3 clients · distributed loss: 0.4453</div>
+<div style="animation-delay:5.7s"><span style="color:#88ccff;">[ROUND 10/10]</span> 3 clients · distributed loss: 0.4451</div>
+<div style="animation-delay:6.1s"><span style="color:#66ddaa;">Model saved to ./dsflower_output/sklearn_logreg_FedAvg_10r</span></div>
+<div style="animation-delay:6.3s">SuperLink stopped.</div>
 </div>
 
 <!-- Validation: central vs federated parity -->
 <div v-click style="background: rgba(15,10,8,0.7); border-radius: 6px; padding: 0.5em 0.8em; margin-top: 4px; color: #c8b8a8;">
-<span style="color:#666;"># Validate on a pooled held-out test set (135 patients, never seen in training)</span>
+<span style="color:#666;"># Validate on a held-out test set (135 patients, never seen in training)</span>
+<br/>probs &nbsp;&nbsp;<span style="color:#b0a8a0;">&lt;-</span> <span style="color:#78a9ff;">ds.flower.predict</span>(run, newdata = test, type = <span style="color:#ffaacc;">"prob"</span>)
+<br/>metrics <span style="color:#b0a8a0;">&lt;-</span> <span style="color:#78a9ff;">binary_metrics</span>(test$outcome, probs)
 </div>
 
 <div v-click style="background: rgba(15,10,8,0.5); border-left: 3px solid #66ddaa; border-radius: 0 6px 6px 0; padding: 0.4em 0.8em; margin: 2px 0; color: #b8b0a8;">
 <div style="display:grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 4px 12px; align-items:center;">
   <div style="color:#888;"></div><div style="color:#ffb366; text-align:right;">AUC</div><div style="color:#ffb366; text-align:right;">Accuracy</div><div style="color:#ffb366; text-align:right;">Log loss</div>
   <div style="color:#c8c0b8;">Central (pooled)</div><div style="text-align:right;">0.907</div><div style="text-align:right;">0.815</div><div style="text-align:right;">0.399</div>
-  <div style="color:#e0d8d0;">Federated (dsFlower)</div><div style="text-align:right; color:#66ddaa;">0.903</div><div style="text-align:right; color:#66ddaa;">0.830</div><div style="text-align:right; color:#66ddaa;">0.405</div>
-  <div style="color:#888;">&Delta; (fed &minus; central)</div><div style="text-align:right; color:#888;">&minus;0.003</div><div style="text-align:right; color:#888;">+0.015</div><div style="text-align:right; color:#888;">+0.006</div>
+  <div style="color:#e0d8d0;">Federated (dsFlower)</div><div style="text-align:right; color:#66ddaa;">0.902</div><div style="text-align:right; color:#66ddaa;">0.837</div><div style="text-align:right; color:#66ddaa;">0.412</div>
+  <div style="color:#888;">&Delta; (fed &minus; central)</div><div style="text-align:right; color:#888;">&minus;0.005</div><div style="text-align:right; color:#888;">+0.022</div><div style="text-align:right; color:#888;">+0.013</div>
 </div>
-<div style="margin-top:6px; color:#b0a8a0;">Per-site held-out AUC &middot; cleveland <span style="color:#e0d8d0;">0.90</span> (n=59) &middot; hungary <span style="color:#e0d8d0;">0.93</span> (n=51) &middot; va <span style="color:#e0d8d0;">0.67</span> (n=25)</div>
+<div style="margin-top:6px; color:#b0a8a0;">Per-site held-out AUC &middot; cleveland <span style="color:#e0d8d0;">0.89</span> (n=59) &middot; hungary <span style="color:#e0d8d0;">0.93</span> (n=51) &middot; va <span style="color:#e0d8d0;">0.69</span> (n=25)</div>
 <div style="margin-top:4px; color:#66ddaa;">Federated model matches the pooled-data baseline. No data ever moved.</div>
 </div>
 
 <!-- Predict on real held-out patients -->
 <div v-click style="background: rgba(15,10,8,0.7); border-radius: 6px; padding: 0.5em 0.8em; margin-top: 4px; color: #c8b8a8;">
-<span style="color:#666;"># 3 held-out patients, standardized with the training scaler</span>
-<br/><span style="color:#78a9ff;">ds.flower.predict</span>(run, newdata = held_out, type = <span style="color:#ffaacc;">"prob"</span>)
-<br/><span style="color:#b0a8a0;">[1] 0.8975 0.3981 0.9125</span>
+<span style="color:#666;"># 3 held-out patients, one per site (raw clinical values, all 10 features)</span>
+<br/>patients <span style="color:#b0a8a0;">&lt;-</span> <span style="color:#78a9ff;">data.frame</span>(
+<br/>&nbsp;&nbsp;age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">61</span>, <span style="color:#88ccff;">53</span>, <span style="color:#88ccff;">69</span>), &nbsp;sex &nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">1</span>, <span style="color:#88ccff;">0</span>, <span style="color:#88ccff;">1</span>), &nbsp;cp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">4</span>, <span style="color:#88ccff;">2</span>, <span style="color:#88ccff;">4</span>),
+<br/>&nbsp;&nbsp;trestbps = <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">140</span>, <span style="color:#88ccff;">140</span>, <span style="color:#88ccff;">140</span>), &nbsp;chol &nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">207</span>, <span style="color:#88ccff;">216</span>, <span style="color:#88ccff;">208</span>), &nbsp;fbs &nbsp;&nbsp;&nbsp;&nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">0</span>, <span style="color:#88ccff;">0</span>, <span style="color:#88ccff;">0</span>),
+<br/>&nbsp;&nbsp;restecg &nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">2</span>, <span style="color:#88ccff;">0</span>, <span style="color:#88ccff;">1</span>), &nbsp;thalach = <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">138</span>, <span style="color:#88ccff;">142</span>, <span style="color:#88ccff;">140</span>), &nbsp;exang &nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">1</span>, <span style="color:#88ccff;">1</span>, <span style="color:#88ccff;">1</span>),
+<br/>&nbsp;&nbsp;oldpeak &nbsp;= <span style="color:#78a9ff;">c</span>(<span style="color:#88ccff;">1.9</span>, <span style="color:#88ccff;">2.0</span>, <span style="color:#88ccff;">2.0</span>))
+<br/><span style="color:#78a9ff;">ds.flower.predict</span>(run, newdata = patients, type = <span style="color:#ffaacc;">"prob"</span>)
+<br/><span style="color:#b0a8a0;">[1] 0.8820 0.4683 0.8904</span>
 </div>
 
 <div v-click style="background: rgba(15,10,8,0.5); border-left: 3px solid #444; border-radius: 0 6px 6px 0; padding: 0.4em 0.8em; margin: 2px 0; color: #b8b0a8;">
-<div style="display:grid; grid-template-columns: 1.1fr 2.5fr 0.9fr 0.9fr; gap: 4px 12px; align-items:center;">
-  <div style="color:#ffb366;">site</div><div style="color:#ffb366;">patient (clinical profile)</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
-  <div style="color:#c8c0b8;">cleveland</div><div style="color:#b0a8a0;">61yo M · cp4 · chol207 · oldpeak1.9</div><div style="text-align:right; color:#FFD000;">0.90</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
-  <div style="color:#c8c0b8;">hungary</div><div style="color:#b0a8a0;">53yo F · cp2 · chol216 · oldpeak2.0</div><div style="text-align:right; color:#FFD000;">0.40</div><div style="text-align:right; color:#66ddaa;">no disease &check;</div>
-  <div style="color:#c8c0b8;">va</div><div style="color:#b0a8a0;">69yo M · cp4 · chol208 · oldpeak2.0</div><div style="text-align:right; color:#FFD000;">0.91</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
+<div style="display:grid; grid-template-columns: 1.1fr 1.6fr 0.9fr 0.9fr; gap: 4px 12px; align-items:center;">
+  <div style="color:#ffb366;">site</div><div style="color:#ffb366;">patient</div><div style="color:#ffb366; text-align:right;">pred. risk</div><div style="color:#ffb366; text-align:right;">actual</div>
+  <div style="color:#c8c0b8;">cleveland</div><div style="color:#b0a8a0;">61yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.88</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
+  <div style="color:#c8c0b8;">hungary</div><div style="color:#b0a8a0;">53yo F · cp2</div><div style="text-align:right; color:#FFD000;">0.47</div><div style="text-align:right; color:#66ddaa;">no disease &check;</div>
+  <div style="color:#c8c0b8;">va</div><div style="color:#b0a8a0;">69yo M · cp4</div><div style="text-align:right; color:#FFD000;">0.89</div><div style="text-align:right; color:#66ddaa;">disease &check;</div>
 </div>
 </div>
 
