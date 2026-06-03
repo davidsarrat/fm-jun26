@@ -7,6 +7,7 @@ drawings:
 transition: slide-left
 colorSchema: dark
 css: unocss
+codeCopy: false
 ---
 
 <div class="flex flex-col items-center justify-center h-full">
