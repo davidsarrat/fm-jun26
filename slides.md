@@ -113,11 +113,15 @@ src: ./slides/app-pool-dilemma.md
 ---
 
 ---
-src: ./slides/app-pool-hub.md
+src: ./slides/flower-hub-intro.md
 ---
 
 ---
-src: ./slides/flower-hub-credit.md
+src: ./slides/flower-hub-diagram.md
+---
+
+---
+src: ./slides/app-pool-solution.md
 ---
 
 ---

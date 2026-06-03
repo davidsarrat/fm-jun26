@@ -1,10 +1,9 @@
 <div class="h-full flex flex-col justify-center">
 
-## Built on the Flower team's work
+## Flower Hub: App Verification
 
-<div class="grid grid-cols-2 gap-6 mt-2 items-center">
-  <img src="/flower-hub-article.png" style="width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);" />
-  <img src="/flower-hub-signing.png" style="width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);" />
+<div class="flex justify-center mt-2">
+  <img src="/flower-hub-article.png" style="max-width: 78%; max-height: 360px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);" />
 </div>
 
 <div class="mt-4 text-center" style="font-family: 'Roboto Mono', monospace; font-size: 0.72em; color: #b8b0a8;">
