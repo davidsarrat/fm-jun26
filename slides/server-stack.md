@@ -64,7 +64,7 @@
   <!-- ===== CLICK 5: Security (SVG part) ===== -->
   <g v-click>
     <rect x="200" y="248" width="335" height="18" rx="5" fill="rgba(102,221,170,0.06)" stroke="rgba(102,221,170,0.15)" stroke-width="0.6"/>
-    <text x="367" y="260" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="2.2" class="g-term" data-g="Trust profiles" style="cursor:pointer;">Trust profiles · SecAgg+ · DP-SGD · Disclosure control</text>
+    <text x="367" y="260" text-anchor="middle" fill="#66ddaa" font-family="Roboto Mono" font-size="2.2" class="g-term" data-g="Differential Privacy" style="cursor:pointer;">SecAgg+ · Differential Privacy · Disclosure control</text>
   </g>
 
 </svg>
