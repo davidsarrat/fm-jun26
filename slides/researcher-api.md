@@ -5,7 +5,9 @@
 
 ```r
 # DataSHIELD login loads each site's table into D
-conns  <- datashield.login(logins, assign = TRUE, symbol = "D")
+conns  <- datashield.login(
+  logins, assign = TRUE, symbol = "D"
+)
 
 flower <- ds.flower.connect(conns, symbol = "D")
 

@@ -245,21 +245,32 @@ td {
    blur-out 1s, then blur-in 1s — symmetric both ways
    ———————————————————————————————— */
 
+/* Page-level: timing only (so Vue waits) + keep leaving slide on top.
+   The dark overlay (.slidev-layout::after) and its backdrop-filter are never touched. */
 .blur-enter-active,
 .blur-leave-active {
-  transition: opacity 1s ease, filter 1s ease;
+  transition: filter 1s ease;
 }
 .blur-enter-active {
   transition-delay: 1s;
 }
-.blur-enter-from,
-.blur-leave-to {
-  opacity: 0;
+.blur-leave-active {
+  z-index: 20;
+}
+/* Visual: blur only the slide content, never the dark layer */
+.blur-enter-active .slidev-layout > *,
+.blur-leave-active .slidev-layout > * {
+  transition: filter 1s ease;
+}
+.blur-enter-active .slidev-layout > * {
+  transition-delay: 1s;
+}
+.blur-enter-from .slidev-layout > *,
+.blur-leave-to .slidev-layout > * {
   filter: blur(20px);
 }
-.blur-enter-to,
-.blur-leave-from {
-  opacity: 1;
+.blur-enter-to .slidev-layout > *,
+.blur-leave-from .slidev-layout > * {
   filter: blur(0);
 }
 
