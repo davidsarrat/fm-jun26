@@ -10,8 +10,8 @@
 Developers publish, trusted reviewers sign, and each node decides which reviewers to trust.
 </div>
 
-<div class="mt-2 text-center" style="font-family: 'Roboto Mono', monospace; font-size: 0.7em; color: #8a7d70;">
-Diagram: Flower Labs, <em>Introducing App Verification on Flower Hub</em> (2026-05-28).
+<div class="mt-2 text-center" style="font-family: 'Roboto Mono', monospace; font-size: 0.72em; color: #b8b0a8;">
+Diagram: Mohammad Naseri &amp; Yan Gao, Flower Labs, <em>Introducing App Verification on Flower Hub</em> (2026-05-28).
 </div>
 
 </div>

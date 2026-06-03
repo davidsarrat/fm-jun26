@@ -7,8 +7,8 @@
 </div>
 
 <div class="mt-4 text-center" style="font-family: 'Roboto Mono', monospace; font-size: 0.72em; color: #b8b0a8;">
-Flower Labs. <em>Introducing App Verification on Flower Hub</em>. 2026-05-28.<br/>
-<span style="color: #88ccff;">flower.ai/blog/2026-05-28-introducing-app-verification-on-flower-hub</span>
+Mohammad Naseri &amp; Yan Gao, Flower Labs. <em>Introducing App Verification on Flower Hub</em>. 2026-05-28.<br/>
+<a href="https://flower.ai/blog/2026-05-28-introducing-app-verification-on-flower-hub/" target="_blank" style="color: #88ccff; text-decoration: underline;">flower.ai/blog/2026-05-28-introducing-app-verification-on-flower-hub</a>
 </div>
 
 </div>
