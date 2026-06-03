@@ -56,7 +56,7 @@ const COORD: [number, number][] = [
 ]
 
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
-const ASK = '#22d3ee', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const ASK = '#7de8f6', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const PRE_MS = 500
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
