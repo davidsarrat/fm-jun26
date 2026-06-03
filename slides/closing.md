@@ -2,7 +2,7 @@
   <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5em; color: #000000;">
     Thank you for your attention!
   </div>
-  <div style="font-family: 'Roboto Mono', monospace; font-size: 0.9em; margin-top: 0.3em; display: flex; flex-direction: column; align-items: center; gap: 0.1em;">
+  <div style="font-family: 'Roboto Mono', monospace; font-size: 1.05em; margin-top: 0.3em; display: flex; flex-direction: column; align-items: center; gap: 0.1em;">
     <span style="font-size: 0.72em; color: #333333; letter-spacing: 0.04em;">Repository links</span>
     <a href="https://github.com/isglobal-brge/dsFlower" style="color: #1a3fff !important; font-weight: 600; text-decoration: none !important;">github.com/isglobal-brge/dsFlower</a>
     <a href="https://github.com/isglobal-brge/dsFlowerClient" style="color: #1a3fff !important; font-weight: 600; text-decoration: none !important;">github.com/isglobal-brge/dsFlowerClient</a>
