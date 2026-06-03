@@ -1,7 +1,7 @@
 ## DataSHIELD adoption
 
-<div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center;">
-<svg :viewBox="viewBox" style="width:100%; max-height:540px;">
+<div style="margin:0.3em -2.5rem 0; display:flex; justify-content:center; overflow:hidden;">
+<svg :viewBox="viewBoxRef" :style="svgStyle">
   <defs>
     <linearGradient id="wFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#88ccff" stop-opacity="0.15"/>
@@ -57,7 +57,7 @@ const COORD: [number, number][] = [
 ]
 
 const IDLE_GLOW = '#ff5a5a', IDLE_DOT = '#ff8a8a'
-const BLUE = '#88ccff', YELLOW = '#FFD000', GREEN = '#66ddaa'
+const ASK = '#b388ff', YELLOW = '#FFD000', GREEN = '#66ddaa'
 const D = 7
 const QUERY_MS = 800, PAUSE_MS = 500, RESULT_MS = 800
 const TOTAL = QUERY_MS + PAUSE_MS + RESULT_MS
@@ -99,9 +99,8 @@ const REGION_IDS = [...regCap.keys()]
 const REGION_CAP = new Map<number, number>()
 REGION_IDS.forEach(r => REGION_CAP.set(r, Math.min(3, Math.ceil(REGION_SIZE.get(r)! / 40))))
 
-// smooth zoom to the largest (European) cluster on click
+// smooth GPU zoom to the largest (European) cluster on click
 const AR = 1000 / 423.4
-const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
 const EU_REGION = [...REGION_SIZE.entries()].reduce((a, b) => b[1] > a[1] ? b : a)[0]
 const EU = (() => {
   const pts = IDS.filter(i => REGION[i] === EU_REGION).map(i => COORD[i])
@@ -113,23 +112,47 @@ const EU = (() => {
   return { x: minx, y: miny, w, h }
 })()
 
-const vb = ref({ ...FULL })
-const viewBox = computed(() => `${vb.value.x} ${vb.value.y} ${vb.value.w} ${vb.value.h}`)
+// hybrid zoom: animate with GPU transform (smooth), settle on viewBox (crisp)
 const { clicks } = useNav()
-let zoomRaf = 0
-function tweenTo(to: { x: number; y: number; w: number; h: number }) {
-  cancelAnimationFrame(zoomRaf)
-  const from = { ...vb.value }
-  const t0 = performance.now(), dur = 900
-  const ease = (p: number) => p < 0.5 ? 2 * p * p : 1 - ((-2 * p + 2) ** 2) / 2
-  function step(now: number) {
-    const p = Math.min(1, (now - t0) / dur), e = ease(p)
-    vb.value = { x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e, w: from.w + (to.w - from.w) * e, h: from.h + (to.h - from.h) * e }
-    if (p < 1) zoomRaf = requestAnimationFrame(step)
-  }
-  zoomRaf = requestAnimationFrame(step)
+const FULL = { x: 0, y: 0, w: 1000, h: 423.4 }
+const IDENTITY = 'translate(0%, 0%) scale(1)'
+const TRANSITION = 'transform 950ms cubic-bezier(0.22, 1, 0.36, 1)'
+let curBox = FULL
+let zoomTok = 0
+const viewBoxRef = ref('0 0 1000 423.4')
+const transformRef = ref(IDENTITY)
+const transitionRef = ref(TRANSITION)
+const svgStyle = computed(() => ({
+  width: '100%',
+  maxHeight: '540px',
+  transformOrigin: '0 0',
+  transition: transitionRef.value,
+  transform: transformRef.value,
+  willChange: 'transform',
+}))
+function zoomTo(TB: { x: number; y: number; w: number; h: number }) {
+  if (TB === curBox) return
+  const VB = curBox
+  const k = VB.w / TB.w
+  const tx = -100 * (TB.x - VB.x) / TB.w
+  const ty = -100 * (TB.y - VB.y) / TB.h
+  const tok = ++zoomTok
+  transitionRef.value = TRANSITION
+  transformRef.value = IDENTITY
+  requestAnimationFrame(() => {
+    if (tok !== zoomTok) return
+    transformRef.value = `translate(${tx}%, ${ty}%) scale(${k})`
+  })
+  setTimeout(() => {
+    if (tok !== zoomTok) return
+    transitionRef.value = 'none'
+    transformRef.value = IDENTITY
+    viewBoxRef.value = `${TB.x} ${TB.y} ${TB.w} ${TB.h}`
+    curBox = TB
+    requestAnimationFrame(() => { if (tok === zoomTok) transitionRef.value = TRANSITION })
+  }, 1000)
 }
-watch(clicks, c => tweenTo((c ?? 0) >= 1 ? EU : FULL))
+watch(clicks, c => zoomTo((c ?? 0) >= 1 ? EU : FULL))
 
 const busy: boolean[] = COORD.map(() => false)
 let txns: Txn[] = []
@@ -235,7 +258,7 @@ function frame(now: number) {
   for (const tx of txns) {
     const e = now - tx.t0
     if (e >= TOTAL + ACK_MS) { done.push(tx); continue }
-    setActive(tx.emitter, e < TOTAL ? BLUE : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
+    setActive(tx.emitter, e < TOTAL ? ASK : GREEN, 0.25 + 0.05 * Math.sin(now * 0.012))
     if (e < QUERY_MS) {
       const p = e / QUERY_MS
       tx.targets.forEach(t => setActive(t, YELLOW, 0.18 + 0.08 * Math.abs(Math.sin(now * 0.02))))
@@ -269,5 +292,5 @@ function frame(now: number) {
 }
 
 onMounted(() => { raf = requestAnimationFrame(frame) })
-onUnmounted(() => { cancelAnimationFrame(raf); cancelAnimationFrame(zoomRaf) })
+onUnmounted(() => cancelAnimationFrame(raf))
 </script>
