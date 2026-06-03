@@ -44,7 +44,7 @@
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
   <foreignObject x="635" y="70.5" width="200" height="9">
     <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;justify-content:center;">
-      <span class="g-term" data-g="Disclosure control" :style="'font-family:Roboto Mono,monospace;font-size:7px;line-height:1;padding:1px 3px;border-radius:2px;cursor:pointer;white-space:nowrap;' + ($clicks>=1 ? 'background:#FFD000;color:#1a1206;font-weight:600;' : 'background:transparent;color:#b0b8c0;')">Disclosure Control</span>
+      <span class="g-term" :class="$clicks>=1 ? 'disc-on' : ''" data-g="Disclosure control" :style="'font-family:Roboto Mono,monospace;font-size:11px;line-height:1;padding:1.5px 4px;border-radius:2px;cursor:pointer;white-space:nowrap;' + ($clicks>=1 ? 'background:#FFD000;color:#1a1206;font-weight:600;' : 'background:transparent;color:#b0b8c0;')">Disclosure Control</span>
     </div>
   </foreignObject>
 
@@ -137,5 +137,13 @@ Data never leaves the hospital. Only **weight deltas** travel back.
   font-size: 9.5px;
   line-height: 1.5;
   color: #f2e8d2;
+}
+.disc-on {
+  border-bottom: none !important;
+  animation: discGlow 1.6s ease-in-out infinite;
+}
+@keyframes discGlow {
+  0%, 100% { box-shadow: 0 0 3px rgba(255,208,0,0.35); }
+  50% { box-shadow: 0 0 11px rgba(255,208,0,0.85); }
 }
 </style>

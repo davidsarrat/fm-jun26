@@ -34,7 +34,11 @@
   <!-- Server-side annotation (right of Hospital C) -->
   <text x="735" y="52" fill="#88ccff" font-family="Roboto Mono" font-size="3.5" text-anchor="middle">Local Compute</text>
   <text x="735" y="64" fill="#b0b8c0" font-family="Roboto Mono" font-size="2.5" text-anchor="middle">+</text>
-  <text x="735" y="76" fill="#b0b8c0" font-family="Roboto Mono" font-size="3" text-anchor="middle">Disclosure Control</text>
+  <foreignObject x="635" y="70.5" width="200" height="9">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;justify-content:center;">
+      <span class="g-term" data-g="Disclosure control" style="font-family:Roboto Mono,monospace;font-size:11px;line-height:1;padding:1.5px 4px;border-radius:2px;cursor:pointer;white-space:nowrap;background:transparent;color:#b0b8c0;">Disclosure Control</span>
+    </div>
+  </foreignObject>
 
   <!-- Researcher node (bottom center) -->
   <g transform="translate(350,280)">
