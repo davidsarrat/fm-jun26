@@ -19,11 +19,18 @@ class: match-slide
 
 </div>
 
-<span v-click style="display:none"></span>
-
 <script setup lang="ts">
-import { computed } from 'vue'
-const revealed = computed(() => ($clicks.value ?? 0) >= 1)
+import { ref } from 'vue'
+import { onSlideEnter } from '@slidev/client'
+
+// Wait for the slide-left transition (--slidev-transition-duration: 0.5s) to settle
+// before playing, so the match animates after landing, not during the page change.
+const ENTER_DELAY = 550
+const revealed = ref(false)
+onSlideEnter(() => {
+  revealed.value = false
+  setTimeout(() => { revealed.value = true }, ENTER_DELAY)
+})
 </script>
 
 <style>
