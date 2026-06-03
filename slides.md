@@ -63,6 +63,10 @@ src: ./slides/bridge.md
 ---
 
 ---
+src: ./slides/datashield-profile.md
+---
+
+---
 src: ./slides/match.md
 ---
 
