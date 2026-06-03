@@ -49,6 +49,12 @@
       <circle r="2" :fill="pn.dot"/>
     </g>
   </g>
+  <g font-family="Roboto Mono" font-weight="600" font-size="2.8" fill="#dfe9f5">
+    <text :opacity="popNodes[2].o" x="457.4" y="202.2" text-anchor="start">Senegal</text>
+    <text :opacity="popNodes[1].o" x="533.4" y="236.1" text-anchor="start">Cameroon</text>
+    <text :opacity="popNodes[0].o" x="609.4" y="253.1" text-anchor="start">Kenya</text>
+    <text :opacity="popNodes[3].o" x="614.5" y="220.3" text-anchor="start">Ethiopia</text>
+  </g>
   <g :opacity="popNodes[3].o">
     <line x1="604" y1="216" x2="597" y2="211" stroke="#FFD000" stroke-width="0.7" stroke-linecap="round"/>
     <text x="588" y="209.6" text-anchor="middle" fill="#FFD000" font-family="Roboto Mono" font-size="1.05" font-weight="600">next week, btw! :)</text>
